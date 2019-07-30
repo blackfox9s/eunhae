@@ -7,8 +7,7 @@ var layout = (function () {
     } else {
       menu();
     }
-    visualSlick();
-    pathList();
+    ui.init();
   }
 
   function includeAct() {
@@ -43,41 +42,6 @@ var layout = (function () {
     $closeBt.off('click').on('click', function(){
       $(this).parent().removeClass('is-act');
       $gnb.removeClass('is-open');
-    });
-  }
-
-  function pathList(){
-    var pathBox = $('.path-sec');
-    if(pathBox.length===0){return;}
-    var flag = (pathBox.find('dd a').length===1);
-    pathBox.find('dt').on("click keypress", function(e){
-      var $thisParent = $(this).closest('dl');
-      if(e.type === 'keypress' && e.which !== 13 || flag) {return;}
-      if($thisParent.hasClass('is-open')){
-        $thisParent.removeClass('is-open');
-      }else{
-        $thisParent.addClass('is-open').siblings().removeClass('is-open');
-      }
-    });
-    pathBox.find('dl').each(function(){
-      var txt = $(this).find('.act a').text();
-      $(this).find('dt em').text(txt);
-      $(this).find('dd a').last().on('keydown', function(e){
-        if(e.which === 9){$(this).closest('dl').find('dt').focus(); return false;}
-      });
-    });
-  }
-
-  function visualSlick(){
-    var $obj = $('.visual-slick-sec');
-    $obj.find('.slider').slick({
-      dots: false,
-      infinite: true,
-      speed: 500,
-      fade: true,
-      cssEase: 'linear',
-      prevArrow: $obj.find('.prev'),
-      nextArrow: $obj.find('.next'),
     });
   }
 })();

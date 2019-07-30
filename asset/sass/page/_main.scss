@@ -6,6 +6,7 @@
   max-width: 100%;
 }
 
+/* 비주얼*/
 .visual-slick-sec {
   position: relative;
   > img {
@@ -62,12 +63,37 @@
       }
     }
     span, i {color: $gColor2;}
-    span {font-size: em(18);}
+    span {font-size: em(18); vertical-align: middle;}
     i {font-size: em(24);}
     a {
       display: block;
+      position: relative;
       padding: 0 em(32);
+      &:before, &:after {
+        content: '';
+        display: inline-block;
+        background: 50% no-repeat;
+        background-size: contain;
+        vertical-align: middle;
+      }
+      &:before {
+        width: em(40);
+        height: em(40);
+        margin-right: em(16);
+      }
+      &:after {
+        position: absolute;
+        right: em(32);
+        top: 0;
+        bottom: 0;
+        width: em(10);
+        background-image: url('../../asset/images/main/visual_arrow.png');
+      }
     }
+    .icon1 a:before {background-image: url('../../asset/images/main/visual_icon1.png');}
+    .icon1 a:after {display: none;}
+    .icon2 a:before {background-image: url('../../asset/images/main/visual_icon2.png');}
+    .icon3 a:before {background-image: url('../../asset/images/main/visual_icon3.png');}
     .btn-pn {
       text-align: center;
       width: em(80);
@@ -81,10 +107,20 @@
     margin-bottom: em(54);
     .bar {display: none;}
     .customer {
-      bottom: em(-54);
       height: em(54);
-      span {font-size: em(16);}
-      i {font-size: em(16);}
+      span, i {font-size: em(16);}
+      a {
+        padding: 0 em(12);
+        &:before {
+          width: em(30);
+          height: em(30);
+          margin-right: em(8);
+        }
+        &:after {
+          right: em(12);
+          width: em(8);
+        }
+      }
       .btn-pn {
         width: em(54);
       }
@@ -97,86 +133,79 @@
   }
 }
 
-.company-info-sec {
-  @extend .inner;
+/* 공통 */
+.company-info-sec, .category-info-sec {@extend .inner;}
+.company-info-sec, .category-info-sec, .etc-category-sec {
   margin-top: em(100);
-  > div {position: relative;}
-  article {
-    overflow: hidden;
-    width: 49%;
-    &:first-child {width: 51%;}
-  }
-  dl {
-    padding: 0 em(32) em(5);
-  }
-  .message {
-    position: absolute;
-    top: 0;
-    right: 0;
-    dt {
-      font-size: em(24);
-    }
-    dd {
-      margin-top: em(15);
-      color: $gColor3;
-    }
-  }
-
   @include tablet-desktop {
-    dl {padding: 0 em(16);}
+    margin-top: em(50);
+  }
+}
+
+/* 이용안내 */
+.company-info-sec {
+  > div {position: relative;}
+  .message {
+    .txt1 {font-size: em(24);}
+    .txt2 {color: $gColor3; margin-top: em(15);}
+  }
+  @include desktop {
+    > div {margin: 0 em(-16);}
+    .message {position: absolute; top: 0; right: 0; width: 50%; padding: 0 em(22) em(5) em(32);}
+  }
+  @include tablet-desktop {
+    > div {margin: 0 em(-8);}
+    .message {display: none;}
   }
 }
 .hospital-and-doctor {
-  ul {
-    display: block;
-  }
-  li {
-    display: table-cell;
-    width: 50%;
-    padding-right: em(32);
-  }
-  img {
-    width: 100%;
-  }
-  a {
-    display: block;
-  }
+  ul {@include clearfix;}
+  li {float: left; width: 50%; padding: 0 em(16);}
+  img {width: 100%;}
+  a {display: block; position: relative; border: 1px solid $gColor5; @include clearfix;}
   span {
     display: block;
-    border: solid $gColor5;
-    border-width: 0 1px 1px;
     padding: em(19) em(22) em(25);
-  }
-  strong {
-    display: block;
-    margin-bottom: em(4);
-  }
-  em {
-    font-size: em(14);
-    color:$gColor3;
-  }
-
-  @include tablet-desktop {
-    li {
-      padding-right: em(16);
+    &:before {
+      content: '';
+      position: absolute;
+      right: em(16);
+      width: em(32);
+      height: em(32);
+      background: url('../../asset/images/main/arrow.png') 0 0 no-repeat;
+      background-size: contain;
     }
+  }
+  strong {display: block; margin-bottom: em(4); white-space: nowrap;}
+  em {font-size: em(14); color:$gColor3;}
+
+  @include desktop {
+    width: 50%;
+    span {position: relative;}
+    span:before {top: em(16);}
+  }
+  @include tablet-desktop {
+    li {padding: 0 em(8);}
+    img {float: left; max-width: 40%;}
+    span {margin-left: 40%; padding-bottom: 0;}
+    span:before {bottom: em(16);}
+  }
+  @include tablet {
+    span {padding: em(16) em(5) em(16) em(16);}
+  }
+  @include tablet-mobile {
+    img {float: none; max-width: 100%;}
+    span {margin-left: 0;}
+  }
+  @include mobile {
+    li {width: 100%;}
+    li + li {margin-top: em(16);}
+    span {padding: em(24);}
   }
 }
 .news-and-online {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: table;
-  table-layout: fixed;
-  border: solid $gColor5;
-  border-width: 0 1px;
-  dl {
-    display: table-cell;
-    width: 50%;
-    & + dl {
-      border-left: 1px solid $gColor5;
-    }
-  }
+  @include clearfix;
+  dl {float: left; width: 50%; margin-top: em(32);}
   dt {
     &:after {
       content: '';
@@ -187,27 +216,177 @@
       background: $gColor1;
     }
   }
-  dd + dd {
-    margin-top: em(8);
-  }
-  em {
-    font-size: em(18);
-    font-weight: 500;
-  }
-  a {
-    font-size: em(14);
-    color: $gColor3;
-    display: block;
-    @include ellipsis;
-  }
+  dd + dd {margin-top: em(8);}
+  em {font-size: em(18); font-weight: 500;}
+  a {font-size: em(14); color: $gColor3; display: block; @include ellipsis;}
 
+  @include desktop {
+    position: absolute; right: 0; bottom: 0; width: 50%;
+    dl {
+      padding: 0 em(22) em(5) em(32);
+      &:nth-of-type(2) {padding-right: 0; border-left: 1px solid $gColor5;}
+    }
+  }
   @include tablet-desktop {
     border-width: 0;
+    dl {padding: 0 em(8) em(5);}
+  }
+  @include mobile {
+    dl {float: none; width: auto;}
   }
 }
 
+/* 카테고리 설정 */
+.category-info-sec {
+  @include clearfix;
+  position: relative;
+}
+.category-tabs {
+  span {font-size: em(18); font-weight: 500; vertical-align: middle;}
+  li {
+    position: relative;
+    border-bottom: 1px solid $gColor5;
+    padding : em(22) em(14);
+    outline: none;
+    cursor: pointer;
+    &:before {
+      content: '';
+      display: inline-block;
+      position: relative;
+      width: em(54);
+      height: em(50);
+      margin-right: em(8);
+      background: url('../../asset/images/main/tabs_icon.png') 50% no-repeat;
+      background-size: contain;
+      vertical-align: middle;
+    }
+    &.active {
+      border-bottom-color: $gColor1;
+      &:before {
+        background-image: url('../../asset/images/main/tabs_icon_active.png');
+      }
+    }
+  }
+  @include tablet-desktop {
+    li {
+      padding : em(13) 0;
+    }
+  }
+  @include tablet-better {
+    float: left; width: 26.65%; padding-right: em(32);
+    li {
+      &.active {
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          right: 0;
+          width: 10px;
+          height: 10px;
+          background: url('../../asset/images/main/tabs_line.png') 50% no-repeat;
+        }
+      }
+    }
+  }
+  @include tablet {
+    ul {display: table; table-layout: fixed; width: 100%;}
+    li {
+      display: table-cell;
+      text-align: center;
+      &:before {
+        width: em(36);
+        height: em(34);
+        margin: 0 0 em(5);
+      }
+      &.active {
+        border-bottom-width: 2px;
+      }
+    }
+    span {display: block;}
+  }
+  @include tablet {
+    ul {display: table; table-layout: fixed; width: 100%;}
+    li {
+      display: table-cell;
+      text-align: center;
+      padding: 0 0 em(10);
+      &:before {
+        width: em(36);
+        height: em(34);
+        margin: 0 0 em(5);
+      }
+    }
+    span {font-size: em(15);}
+  }
+}
+.category-detail {
+  li {display: none;
+    &.active {display: block;}
+  }
+  .thum {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: block;
+    width: 40%;
+    background: $gColor5 50% no-repeat;
+    background-size: cover;
+  }
+  .info {
+    padding: em(25) 0 0;
+    > * {display: block;}
+    span {color: $color1; font-size: em(18); margin-bottom: em(20, 18);}
+    strong {font-size: em(46);}
+    em {font-size: em(18); margin-top: em(9, 18);}
+    p {
+      color: $gColor3;
+      margin: em(36) 0;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: em(10);
+        right: 100%;
+        margin-right: 10px;
+        height: em(4);
+        width: em(160);
+        background: $gColor1;
+      }
+    }
+  }
+  @include tablet-desktop {
+    .info {
+      padding-top: 0;
+      span {margin: 0;}
+    }
+  }
+  @include tablet-better {
+    margin-left: 26.65%;
+    .info {
+      padding-left: 65%;
+    }
+  }
+  @include tablet {
+    position: relative;
+    margin-top: em(24);
+    .info {
+      max-width: 550px;
+      padding: 0 0 0 50%;
+    }
+  }
+  @include mobile {
+    .thum {display: none;}
+    .info {padding: 0;
+      em br {display: none;}
+      p {margin: em(20) 0;}
+      p:before {display: none;}
+    }
+  }
+}
+
+/* 기타 */
 .etc-category-sec {
-  margin-top: em(132);
+  @include clearfix;
   ul {
     display: table;
     width: 100%;

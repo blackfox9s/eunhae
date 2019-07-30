@@ -48,15 +48,22 @@
 
 .btn {
   display: inline-block;
+  text-align: center;
   min-width: em(140);
   padding: 0 em(20);
   height: em(48);
-  line-height: em(48);
+  line-height: em(46);
+  border: 1px solid $oColor3;
   > span {
     font-size: em(16);
   }
   &.ty1 {
     background: $color1;
     color: $gColor2;
+  }
+  &.ty2 {
+    background: $gColor2;
+    color: $gColor1;
+    border-color: $gColor4;
   }
 }
