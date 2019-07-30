@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+.path-sec {
+  border: solid $gColor5;
+  border-width: 1px 0;
+  @include clearfix;
+  dl, span {
+    float: left;
+    border: solid $gColor5;
+    border-width: 0 1px;
+    margin-left: -1px;
+    white-space: nowrap;
+  }
+  dl {
+    width: em(190);
+    position: relative;
+    cursor: pointer;
+    &.is-open {
+      dd {display: block;}
+    }
+  }
+  dt {
+    padding: em(20) em(30) em(18) em(20);
+    position: relative;
+    .fas {
+      position: absolute;
+      right: em(18);
+      top: 50%;
+      margin-top: em(-8);
+    }
+  }
+  dd {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: -1px;
+    border: 1px solid $gColor5;
+    background: $gColor2;
+    z-index: 10;
+    a {
+      display: block;
+      padding: em(10) em(30) em(8) em(20);
+    }
+    .act {
+      display: none;
+    }
+    p {
+      border-top: 1px solid $gColor5;
+      margin-top: -1px;
+    }
+  }
+  span {
+    width: em(80);
+    min-width: 60px;
+    padding: em(20) 0 em(18);
+    text-align: center;
+    .fas {
+      position: relative;
+      top: em(1);
+    }
+  }
+  a, em {
+    font-size: 15px;
+  }
+  @include tablet-desktop {
+    .inner {
+      padding: 0;
+      display: table;
+      margin: 0 -1px 0 0;
+    }
+    dl, span {
+      float: none;
+      display: table-cell;
+      border-width: 0;
+    }
+    dl {
+      border-width: 0 0 0 1px;
+      &:last-child {
+        border-right-width: 1px;
+      }
+    }
+  }
+  @include tablet {
+    margin-right: -1px;
+    .inner {
+      width: 100%;
+      max-width: 520px;
+    }
+    dl {
+      width: auto;
+    }
+  }
+}

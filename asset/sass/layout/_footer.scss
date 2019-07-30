@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+footer {
+  overflow: hidden;
+  border-top: 1px solid $gColor5;
+  padding-bottom: em(28);
+}
+
+.f-link-sec {
+  border-bottom: 1px solid $gColor5;
+  padding: em(28) 0;
+  text-align: center;
+  overflow: hidden;
+  ul {
+    display: inline-block;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+  }
+  li + li {
+    &:before {
+      content: '';
+      float: left;
+      margin: 0 em(27);
+      width: 1px;
+      height: 16px;
+      background: $gColor4;
+      position: relative;
+      top: em(4);
+    }
+  }
+  @include tablet {
+    padding: 10px 0;
+    text-align: left;
+    margin: 0 em(-16);
+    ul {
+      margin-left: em(-17);
+    }
+    li + li:before {
+      height: 14px;
+      margin: 0 em(16);
+    }
+  }
+}
+
+.f-info-sec {
+  position: relative;
+  overflow: hidden;
+  > div {
+    float: left;
+    &:nth-of-type(1) {
+      width: 32.25%;
+    }
+    &:nth-of-type(3) {
+      float: right;
+      width: 17.5%;
+    }
+  }
+  dt {
+    color: $color1;
+    font-weight: 500;
+    margin: em(32) 0 em(10);
+  }
+  dd {
+    overflow: hidden;
+    font-size: em(15);
+    p {
+      margin-top: 2px;
+    }
+  }
+  .copyright {
+    position: absolute;
+    bottom: 0;
+    font-size: em(13);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  @include tablet-desktop {
+    > div {
+      &:nth-of-type(1) {
+        width: 39%;
+      }
+    }
+  }
+  @include tablet {
+    padding: 0 0 32px;
+    > div {
+      float: none;
+      width: 100% !important;
+    }
+  }
+}
+
+.f-site-info {}
+.f-site-customer {
+  dd {
+    color: $gColor3;
+    div {float: left;}
+    div:nth-of-type(1) {margin-right: em(50);}
+    div:nth-of-type(2) {}
+  }
+  ul {
+    margin-top: em(25);
+    color: $gColor3;
+    li {
+      font-size: em(13);
+      position: relative;
+      padding-left: em(12);
+      &:before {
+        content: '-';
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+}
+.f-site-link {
+  padding-top: em(15);
+  li {
+    padding: em(17) em(7) em(14);
+    border-bottom: 1px solid $gColor5;
+  }
+  a {
+    white-space: nowrap;
+    font-size: em(15);
+    font-weight: 500;
+  }
+  @include tablet-desktop {
+    display: none;
+  }
+}

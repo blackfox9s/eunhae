@@ -1,0 +1,35 @@
+$fontBase : 'Noto Sans KR', 'Segoe WP', 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+$font1 : '돋음', 'Dotum';
+
+/* Size */
+$maxWidth: 1280px;
+$fontSize: 16px;
+
+/* 투명 색상 */
+$oColor1: rgba(0,0,0,0.4);
+$oColor2: rgba(0,0,0,0.6);
+$oColor3: transparent;
+$oColor4: rgba(213,213,213,0.6);
+$oColor5: rgba(255,255,255,0.2);
+
+/* 회색 색상 */
+$gColor1: #000;
+$gColor2: #fff;
+$gColor3: #767676;
+$gColor4: #adadad;
+$gColor5: #dcdcdc;
+$gColor6: #e9e9e9;
+$gColor7: #999;
+$gColor8: #d5d5d5;
+
+/* 기본 색상 */
+$color1: #ff327a;
+$color2: #fb76a2;
+$color3: #fbf7f9;
+
+$input-arr-grp1: 'input[type="number"]', 'input[type="password"]', 'input[type="tel"]', 'input[type="email"]', 'input[type="text"], select, textarea';
+$input-arr-grp2: 'input[type="number"]', 'input[type="password"]', 'input[type="tel"]', 'input[type="email"]', 'input[type="text"]';
+$input-arr-grp3: 'input[type="checkbox"]', 'input[type="radio"]';
+$input-arr1: assign-inputs($input-arr-grp1);
+$input-arr2: assign-inputs($input-arr-grp2);
+$input-arr3: assign-inputs($input-arr-grp3);

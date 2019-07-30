@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+html {
+  height: 100%;
+  font-family: $fontBase;
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 0;
+  @include animation(pageEnter 0.5s);
+  @include animation-delay(0.5s);
+  @include animation-fill-mode(forwards);
+  letter-spacing: -1px;
+  word-spacing: 2px;
+  word-break: keep-all;
+  &.scroll-lock {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-x: hidden;
+    body {
+      height: 100%;
+      overflow: hidden;
+      &:before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background: $oColor2;
+      }
+    }
+  }
+  @include desktop {font-size: 16px;}
+  @include tablet-desktop {font-size: 15px;}
+  @include tablet {font-size: 14px;}
+  @include mobile {font-size: 13px;}
+}
+
+a {color: $gColor1;}
+
+.wrap {}
+.inner {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 0 em(32);
+  position: relative;
+  @include tablet-desktop {
+    padding: 0 em(16);
+  }
+}
+.container {
+  overflow: hidden;
+}
+#contents {
+  @extend .inner;
+  min-height: 600px;
+  max-width: 1072px;
+  margin: em(90) auto;
+}
+
+.only-pc {
+  @include desktop {display: block;}
+  @include tablet {display: none;}
+}
+.only-mo {
+  @include desktop {display: none;}
+  @include tablet {display: block;}
+}
+
+.visual-sec {
+  color: $gColor2;
+  background: $gColor5 50% 50% no-repeat;
+  background-size: cover;
+  padding: em(151) 0 0;
+  height: em(358);
+  h2 {
+    font-size: em(36);
+    letter-spacing: -2px;
+  }
+  span {
+    margin-top: em(8);
+    display: block;
+    font-size: em(16);
+  }
+  @include mobile {
+    h2 {
+      font-size: em(32);
+    }
+  }
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: em(30);
+  strong {
+    font-size: em(40);
+  }
+  p {
+    margin-top: em(6);
+    color: $gColor3;
+  }
+  &:after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: em(60);
+    background: $gColor1;
+    margin: em(25) auto 0;
+  }
+}

@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.pagination {
+  margin-top: em(30);
+  text-align: center;
+  line-height: 1;
+  span {
+    display: inline-block;
+    vertical-align: top;
+  }
+  a, button {
+    display: inline-block;
+    font-size: em(14);
+    padding: em(9, 14) em(7, 14) em(8, 14);
+    color: $gColor1;
+    border: solid $oColor3;
+    border-width: 0 0 2px;
+    transition: border 0.3s;
+    margin: 0 3px;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+    &.act {
+      color: $color1;
+      border-color: $color1;
+    }
+  }
+  .paging-number {
+    margin: 0 em(10);
+  }
+  .paging-btn {
+    a, button {
+      padding-left: em(9, 14);
+      padding-right: em(9, 14);
+      min-width: em(32, 14);
+      border-color: $gColor3;
+      border-width: 1px;
+    }
+  }
+}
+
+.btn-grp {
+  margin-top: em(27);
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  min-width: em(140);
+  padding: 0 em(20);
+  height: em(48);
+  line-height: em(48);
+  > span {
+    font-size: em(16);
+  }
+  &.ty1 {
+    background: $color1;
+    color: $gColor2;
+  }
+}

@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+.list-sec {
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-top: 2px solid $color1;
+  }
+  th, td {
+    text-align: center;
+    padding: em(14) em(7);
+  }
+  th {
+    border-bottom: 1px solid $gColor7;
+    font-weight: 500;
+  }
+  td {
+    border-bottom: 1px solid $gColor8;
+    font-size: em(14);
+    color: $gColor3;
+    &.title {
+      text-align: left;
+      font-size: em(16);
+      color: $gColor1;
+    }
+  }
+
+  .online-consult {
+    th, td {
+      &:nth-of-type(1) {width: 7%;}
+      &:nth-of-type(3) {width: 11%;}
+      &:nth-of-type(4) {width: 10.2%;}
+      &:nth-of-type(5) {width: 10.5%;}
+    }
+    @include tablet {
+      th, td {
+        &:nth-of-type(1) {display: none;}
+        &:nth-of-type(3) {width: 45px;}
+        &:nth-of-type(4) {width: 60px;}
+        &:nth-of-type(5) {width: 50px;}
+      }
+    }
+  }
+
+  .notice {
+    th, td {
+      &:nth-of-type(1) {width: 10%;}
+      &:nth-of-type(3) {width: 14%;}
+    }
+    @include tablet {
+      th, td {
+        &:nth-of-type(1) {width: 50px;}
+        &:nth-of-type(3) {width: 70px;}
+      }
+    }
+  }
+}
+
+.detail-sec {
+  border-top: 2px solid $color1;
+  .title-grp {
+    position: relative;
+    margin: em(20) em(25);
+    overflow: hidden;
+    .pos {
+      color: $gColor3;
+      font-size: em(14);
+      span + span {
+        margin-left: em(28);
+      }
+      &.side2 {
+        position: absolute;
+        right: 1px;
+        bottom: 2px;
+      }
+    }
+    .title {
+      @include ellipsis;
+      font-size: em(18);
+      margin-top: em(7, 18);
+      margin-right: em(120, 18);
+    }
+  }
+  .edit-grp {
+    border: solid $gColor8;
+    border-width: 1px 0;
+    border-top-color: $gColor7;
+    padding: em(25);
+    color: $gColor3;
+  }
+  .answer-grp {
+    background: $color3;
+    padding: em(25);
+    border-bottom: 1px solid $gColor8;
+    > strong {
+      font-size: em(18);
+      color: $color1;
+    }
+    .text {
+      margin-top: em(20);
+      color: $gColor3;
+    }
+  }
+
+  @include tablet {
+    .title-grp {
+      margin: em(15) em(10);
+      .pos {
+        &.side2 {
+          top: 0;
+          bottom: inherit;
+        }
+      }
+      .title {
+        white-space: normal;
+        text-overflow: inherit;
+        margin-right: 0;
+      }
+    }
+    .edit-grp, .answer-grp {
+      padding: em(20) em(10);
+    }
+  }
+}
+
+.write-sec {
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 4px 3px $oColor4;
+  padding: em(72);
+  #{$input-arr1} {
+    width: 100%;
+  }
+  .title {
+    font-size: em(20);
+  }
+  @include tablet {
+    padding: em(24);
+  }
+}
+.write-box {
+  margin-top: em(22);
+  border-top: 2px solid $gColor1;
+  border-bottom: 1px solid $gColor8;
+  li {
+    display: table;
+    width: 100%;
+    margin: em(20) 0;
+    > span, > div {
+      display: table-cell;
+    }
+    > span {
+      width: em(85);
+    }
+    &.checked-row {
+      margin: em(34) 0 em(30);
+    }
+  }
+  @include tablet {
+    padding-left: em(10);
+    padding-right: em(10);
+  }
+}
+.agree-terms {
+  margin-top: em(30);
+  .scroll-box {
+    color: $gColor7;
+    font-size: em(14);
+    border: 1px solid $gColor8;
+    padding: 0 em(20, 14) em(15, 14);
+    height: em(246, 14);
+    white-space: pre-line;
+    overflow-y: auto;
+    margin-bottom: em(12, 14);
+  }
+  .cus-check {
+    color: $gColor3;
+  }
+}
