@@ -9,6 +9,7 @@ var ui = (function () {
   function init() {
     visualSlick();
     pathList();
+    photoSlick();
     tab();
   }
 
@@ -61,6 +62,27 @@ var ui = (function () {
     });
   }
 
+  function photoSlick(){
+    var $obj = $('.photo-slider'), $count;
+    if($obj.length === 0) {return false;}
+    $count = $obj.find('.count');
+    if($count.length > 0) {
+      $count.each(function(i){
+        $(this).prepend('<em>'+ (i+1)+'<hr>'+ $count.length +'</em>');
+      });
+    }
+    $obj.slick({
+      dots: false,
+      infinite: true,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      fade: true,
+      cssEase: 'linear',
+      prevArrow: $obj.siblings('.prev'),
+      nextArrow: $obj.siblings('.next'),
+    });
+  }
+
   function tab(){
     var $obj = $('[data-action="tab"]');
     if($obj.length === 0) {return false;}
@@ -68,21 +90,23 @@ var ui = (function () {
     $obj.each(function(){tabAct($(this), type);});
   }
   function tabAct(obj, type){
-    var $obj = obj, currentNum = 0, currentTarget;
+    var $obj = obj, currentNum = 0;
     var tabToggle = function(){
-      var curObj = $obj.find('[data-tab-target]').eq(currentNum);
-      currentTarget = curObj.data('tab-target');
-      curObj.addClass('active').siblings().removeClass('active');
+      var $selectObj, $selectTarget;
+      $selectObj = $obj.find('[data-tab-target]').eq(currentNum);
+      $selectTarget = $('[data-tab-seq="' + $selectObj.data('tab-target') + '"]');
+      $selectObj.addClass('active').siblings().removeClass('active');
       if(type === 'show') {
-        $('[data-tab-seq="' + currentTarget + '"]').addClass('active').siblings().removeClass('active');
+        $selectTarget.show().addClass('active').siblings().hide().removeClass('active');
+      }
+      if(type === 'scroll') {
+        $('html, body').animate({scrollTop: $selectTarget.offset().top}, 300);
       }
     };
-    tabToggle();
+    if(type === 'show') {tabToggle();}
     $obj.find('[data-tab-target]').off('click').on('click', function(){
-      if (currentNum !== $(this).index()) {
-        currentNum = $(this).index();
-        tabToggle();
-      }
+      currentNum = $(this).index();
+      tabToggle();
     });
   }
 })();

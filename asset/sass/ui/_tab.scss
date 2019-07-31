@@ -1,0 +1,45 @@
+.tabs {
+  @include clearfix;
+  margin-bottom: em(100);
+  padding: 1px 1px 0 0;
+  li {
+    float: left;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    span {
+      margin: -1px -1px 0 0;
+      height: em(58);
+      line-height: em(56);
+      color: $gColor3;
+      display: block;
+      position: relative;
+      border: 1px solid $gColor8;
+    }
+    &:hover {
+      span {
+        color: $gColor2;
+        background: $color1;
+        border-color: $color1;
+        z-index: 2;
+      }
+    }
+  }
+  .col6 li {width: 16.6%;}
+  @include tablet {
+    margin-bottom: em(50);
+    .col6 li {width: 33.3%;}
+  }
+}
+
+.photo-slider {
+  position: relative;
+  > img {
+    max-width: $maxWidth;
+    width: 100%;
+  }
+  .slick-list, .slick-track,
+  .slick-slide,
+  .slick-slide > div,
+  .slick-slide > div > div {}
+}

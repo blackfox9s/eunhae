@@ -49,3 +49,14 @@
   overflow: hidden; clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+@mixin bar {
+  &:after {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: $gColor1;
+    @content;
+  }
+}

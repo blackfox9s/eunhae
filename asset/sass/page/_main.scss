@@ -320,9 +320,6 @@
   }
 }
 .category-detail {
-  li {display: none;
-    &.active {display: block;}
-  }
   .thum {
     position: absolute;
     top: 0;
