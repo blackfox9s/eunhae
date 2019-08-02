@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+
+#contents.about {
+  @extend .inner;
+  margin: em(90) auto;
+  max-width: 1072px;
+}
+
 .easy-booking {
   h4 {
     color: $gColor3;
@@ -140,7 +147,6 @@
   position: relative;
   overflow: hidden;
   dt {
-    width: 34%;
     p {
       display: inline-block;
       @include bar {
@@ -179,6 +185,33 @@
     }
   }
 
+
+  @include desktop {
+    dl {
+      &:nth-of-type(1) {
+        dd {margin-left: 34%;}
+      }
+      &:nth-of-type(2) {
+        dd {margin-right: 34%;}
+      }
+    }
+    dt {
+      width: 34%;
+    }
+  }
+  @include tablet-desktop {
+    dl {
+      &:nth-of-type(1) {
+        dd {margin-left: 25%;}
+      }
+      &:nth-of-type(2) {
+        dd {margin-right: 25%;}
+      }
+    }
+    dt {
+      width: 25%;
+    }
+  }
   @include tablet-better {
     margin-top: em(96);
     &:before {
@@ -196,11 +229,9 @@
       width: 50%;
       &:nth-of-type(1) {
         dt {float: left; text-align: right;}
-        dd {margin-left: 34%;}
       }
       &:nth-of-type(2) {
         dt {float: right; text-align: left;}
-        dd {margin-right: 34%;}
       }
     }
     dt {
@@ -220,6 +251,10 @@
     }
     dt {
       padding: 0 em(10) em(14);
+    }
+    dd {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
     li {
       &.empty {

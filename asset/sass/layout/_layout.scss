@@ -9,6 +9,9 @@ html {
   @include animation(pageEnter 0.5s);
   @include animation-delay(0.5s);
   @include animation-fill-mode(forwards);
+  @include ie9 {
+    opacity: 1;
+  }
   letter-spacing: -1px;
   word-spacing: 2px;
   word-break: keep-all;
@@ -56,10 +59,7 @@ a {color: $gColor1;}
   overflow: hidden;
 }
 #contents {
-  @extend .inner;
-  min-height: 600px;
-  max-width: 1072px;
-  margin: em(90) auto;
+  min-height: em(600);
 }
 
 .only-pc {
@@ -94,6 +94,7 @@ a {color: $gColor1;}
 }
 
 h3 {
+  @extend .inner;
   text-align: center;
   margin-bottom: em(30);
   strong {

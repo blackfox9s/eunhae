@@ -17,6 +17,20 @@
   @media (max-width: 480px) { @content; }
 }
 
+@mixin ieAll {
+  @media all and (min-width:0\0) and (min-resolution:.001dpcm) {
+    @content;
+  }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+@mixin ie9 {
+  @media all and (min-width:0\0) and (min-resolution:.001dpcm) {
+    @content;
+  }
+}
+
 @mixin ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

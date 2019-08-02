@@ -11,6 +11,7 @@ var ui = (function () {
     pathList();
     photoSlick();
     tab();
+    toggle();
   }
 
   function scrollLock(flag){
@@ -91,7 +92,7 @@ var ui = (function () {
   }
   function tabAct(obj, type){
     var $obj = obj, currentNum = 0;
-    var tabToggle = function(){
+    var tabAction = function(){
       var $selectObj, $selectTarget;
       $selectObj = $obj.find('[data-tab-target]').eq(currentNum);
       $selectTarget = $('[data-tab-seq="' + $selectObj.data('tab-target') + '"]');
@@ -103,10 +104,37 @@ var ui = (function () {
         $('html, body').animate({scrollTop: $selectTarget.offset().top}, 300);
       }
     };
-    if(type === 'show') {tabToggle();}
+    if(type === 'show') {tabAction();}
     $obj.find('[data-tab-target]').off('click').on('click', function(){
       currentNum = $(this).index();
-      tabToggle();
+      tabAction();
+    });
+  }
+
+  function toggle(){
+    var $obj = $('[data-action="toggle"]');
+    if($obj.length === 0) {return false;}
+    var type = $obj.data('type');
+    $obj.each(function(){toggleAct($(this), type);});
+  }
+  function toggleAct(obj, type){
+    var $obj = obj, currentNum = 0;
+    var toggleAction = function(){
+      var $selectObj;
+      $selectObj = $obj.find('dl').eq(currentNum);
+      console.log($selectObj);
+      $selectObj.toggleClass('active').siblings().removeClass('active');
+      if($selectObj.hasClass('active')){
+        $selectObj.find('dd').stop().slideDown(200);
+      } else {
+        $selectObj.find('dd').stop().slideUp(200);
+      }
+      $selectObj.siblings().find('dd').stop().slideUp(200);
+    };
+    if(type === 'active') {toggleAction();}
+    $obj.find('dt').off('click').on('click', function(){
+      currentNum = $(this).parent().index();
+      toggleAction();
     });
   }
 })();
