@@ -54,31 +54,28 @@
     }
   }
   hr {border: none; margin: 0; height: em(22);}
-  .note {font-size: em(14); color: $gColor3;}
+  ul hr {height: em(11);}
+  .note {font-size: em(14); color: $gColor3;
+    p + p {margin-top: 0;}
+  }
   .remark,
   .whence {margin-top: em(11);font-size: em(14); color: $gColor3;}
   .whence {text-align: right;}
 
-  .mt10 {margin-top: em(10);}
-  .mt20 {margin-top: em(20);}
-  .mt30 {margin-top: em(30);}
-  .mb10 {margin-bottom: em(10);}
-  .mb20 {margin-bottom: em(20);}
-  .mb30 {margin-bottom: em(30);}
+  .mt10 {display: block; margin-top: em(10) !important;}
+  .mt20 {display: block; margin-top: em(20) !important;}
+  .mt30 {display: block; margin-top: em(30) !important;}
+  .mb10 {display: block; margin-bottom: em(10) !important;}
+  .mb20 {display: block; margin-bottom: em(20) !important;}
+  .mb30 {display: block; margin-bottom: em(30) !important;}
 }
 
 .depict-grp {
-  h5, dl, .rex-top {
+  h5, dl, > p, .rex-top {
     & + ul {
       border-top: 1px solid $gColor9;
       padding-top: em(32);
       margin-top: em(36);
-    }
-  }
-  h5.ty2 {
-    margin-top: em(24);
-    & + ul {
-      margin-top: em(15);
     }
   }
 
@@ -86,8 +83,8 @@
     & + p {margin-top: em(11);}
   }
   > dl {
-    dt {font-size: em(18); color: $gColor1;}
-    dd {
+    > dt {font-size: em(18); color: $gColor1;}
+    > dd {
       color: $gColor3; margin: em(11) 0;
       strong {color: $gColor1;}
       &:last-child {margin-bottom: 0;}
@@ -95,7 +92,7 @@
     }
   }
   > ul {
-    li {
+    > li {
       border-bottom: 1px solid $gColor9;
       padding-left: em(42);
       position: relative;
@@ -108,10 +105,11 @@
       }
       em + p {margin-top: em(11);}
       p + p {margin-top: em(11);}
+      p + div {margin-top: em(11);}
     }
   }
   > ol {
-    li {
+    > li {
       position: relative;
       font-size: em(18);
       padding-left: em(28);
@@ -133,10 +131,11 @@
       & + div {margin: em(11) 0 em(20) !important;}
       & + p {margin-top: em(11) !important;}
     }
-    p {
+    > p {
       position: relative; padding-left: em(12); margin-top: 0 !important;
       &:before { content: '-'; position: absolute; top: 0; left: 0;}
     }
+    > p + div {margin-top: em(11) !important;}
     &.small {
       > p, > span {font-size: em(14);}
     }
@@ -146,7 +145,6 @@
       p > span {position: absolute; top: 0; left: 0;}
     }
   }
-  .thum-list {margin: em(11) 0;}
   .toggles & {
     .rex-top {font-size: em(16);}
     .rex-top + .catalog {margin-top: em(11);}
@@ -176,8 +174,8 @@
         margin-top: em(18);
       }
     }
-    ul {
-      li {
+    > ul {
+      > li {
         padding-left: em(30);
         padding-bottom: em(16);
         margin-bottom: em(16);
@@ -338,6 +336,9 @@
     &.bg2 {background: $color7; color: $color1;}
     &.bg3 {background: $gColor12;}
   }
+  tr.line1 {
+    th, td {border-bottom-color: $gColor1;}
+  }
   td {color: $gColor3;}
   .top {vertical-align: top;}
 
@@ -345,6 +346,46 @@
   .care-tb2 {min-width: 640px;}
 
   .pre-tb1 {min-width: 640px;}
+
+  .medical-tb1 {min-width: 640px;}
+  .medical-tb2 {min-width: 767px; table-layout: inherit;
+    th, td {
+      font-size: em(14);
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.de-list {
+  font-size: em(14);
+  margin-top: em(30,14);
+  dl {margin-top: em(7, 14);}
+  dt, dd {position: relative; padding-left: em(30, 14);}
+  dt {
+    margin-top: em(32, 14); color: $gColor1;
+    > span {position: absolute; top: 0; left: 0;}
+    &:first-child {margin-top: 0;}
+  }
+  dd {margin-top: em(7, 14);}
+}
+
+.thum-list {
+  margin: em(11) 0; overflow: hidden;
+  ul {margin: 0 em(-5);}
+  li {float: left; padding: em(5); line-height: 1;}
+  img {width: 100%;}
+  .col5 li {width: 20%;}
+  .col4 li {width: 25%;}
+  .col3 li {width: 33.3%;}
+  @include tablet {
+    .col5 li {width: 25%;}
+  }
+  @include mobile {
+    .col5 li {width: 50%;}
+    .col4 li {width: 50%;}
+    .col3 li {width: 50%;}
+  }
 }
 
 /* 피부 */
@@ -362,4 +403,23 @@
     p, i {display: block;}
     i {text-align: center;}
   }
+}
+
+/* 내과 */
+.medical-qa {
+  border: 1px solid $gColor5;
+  padding: em(26) em(30);
+  margin-top: em(36);
+  dt, dd {
+    padding-left: em(30);
+    position: relative;
+  }
+  p > span {
+    position: absolute;
+    top: 0; left: 0;
+  }
+  div {font-size: em(14); color: $gColor3;}
+  dt p {color: $color1;}
+  dd p {color: $gColor1; margin-top: em(4);}
+  dd {margin-top: em(11);}
 }

@@ -68,6 +68,7 @@ h1 {
     z-index: 1000;
     .box {
       width: 88%;
+      max-width: 240px;
       height: 100%;
       padding: em(20);
       overflow-y: auto;
@@ -145,6 +146,10 @@ h1 {
   a {
     display: block;
     color: $color1;
+    &.act {
+      padding-bottom: 2px;
+      border-bottom: 2px solid $color1;
+    }
   }
   @include desktop {
     float: right;
@@ -160,6 +165,9 @@ h1 {
     right: 0;
     a {
       font-size: em(14);
+      &.act {
+        padding-bottom: 0;
+      }
     }
   }
   @include tablet-desktop {
@@ -168,6 +176,9 @@ h1 {
     a {
       font-size: 13px;
       padding: 10px;
+      &.act {
+        border-bottom-width: 0;
+      }
     }
   }
 }
