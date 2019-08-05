@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="wrap" data-select-menu="about,m5">
     <!-- S :: header : include시 div 삭제 -->
     <div class="include" data-href="../include/header.html"></div>
     <!-- E :: header : include시 div 삭제 -->
@@ -47,61 +47,37 @@
       <!-- E :: visual-section -->
 
       <!-- S :: path-section -->
-      <section class="path-sec">
-        <div class="inner">
-          <span class="home">
-            <a href="/"><i class="fas fa-home"></i> 홈</a>
-          </span>
-          <dl>
-            <dt><em></em> <i class="fas fa-chevron-down"></i></dt>
-            <dd>
-              <p class="act"><a href="#">이용안내</a></p>
-              <p><a href="#">임신·피임</a></p>
-              <p><a href="#">여성질환</a></p>
-              <p><a href="#">여성검진</a></p>
-              <p><a href="#">여성성형</a></p>
-            </dd>
-          </dl>
-          <dl>
-            <dt><em></em> <i class="fas fa-chevron-down"></i></dt>
-            <dd>
-              <p class="act"><a href="#">원장인사말</a></p>
-              <p class=""><a href="#">의료진소개</a></p>
-              <p class=""><a href="#">시설안내</a></p>
-              <p class=""><a href="#">진료과목/시간</a></p>
-              <p class=""><a href="#">오시는길</a></p>
-              <p class=""><a href="#">공지사항</a></p>
-              <p class=""><a href="#">간편예약</a></p>
-              <p class=""><a href="#">질문과 답변</a></p>
-              <p class=""><a href="#">이용후기</a></p>
-            </dd>
-          </dl>
-        </div>
-      </section>
+      <div class="include" data-href="../include/path.html"></div>
       <!-- E :: path-section -->
 
       <div id="contents" class="about">
         <!-- S :: #contents -->
         <h3>
-          <strong>원장인사말</strong>
+          <strong>오시는길</strong>
           <p>
-            여성과 태아의 소중함을 먼저 생각합니다.
+            은혜산부인과 오시는 길입니다.
           </p>
         </h3>
 
-        <div class="greetings">
-          <div class="thum">
-            <img src="../../asset/images/about/greetings.jpg" alt="" />
+        <section class="about-area">
+          <div class="location">
+            <div class="map"></div>
+            <div class="address">
+              <em>03395</em>
+              <strong>서울특별시 은평구 진흥로 133(대조동 38-19)</strong>
+            </div>
+            <ul>
+              <li>
+                <strong>지하철 이용 시</strong>
+                <p>6호선 역촌역 하차시 3번출구, 3호선 불광역 7번 출구에서 도보 7분</p>
+              </li>
+              <li>
+                <strong>버스 이용 시</strong>
+                <p>7022/7212 대조시장 정류소 하차</p>
+              </li>
+            </ul>
           </div>
-          <p class="text1">
-            <strong>건강한 여성을 위한 산부인과,<br />은혜산부인과</strong>
-          </p>
-          <p class="text2">
-            안녕하세요.<br />
-            본원은 개원 아래 시설이나 의료진의 앞세우기 보다는 자연의 섭리와 인간존중을 최선의 목표로 진료하고 있으며, 이 시대 분만기관으로서 새로운 모델을 제시하고자 합니다.<br />
-            저희 산부인과를 찾아주시는 여러분들께 진심으로 감사의 말씀을 전하며 항상 고객의 소리에 귀길이며 고객의 입장에서 최선을 다하는 산부인과가 되도록 열심히 노력하겠습니다.
-          </p>
-        </div>
+        </section>
         <!-- E :: #contents -->
       </div>
     </div>

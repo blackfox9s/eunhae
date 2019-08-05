@@ -1,5 +1,20 @@
 @charset "UTF-8";
 
+.board-area {
+  @include inner;
+  margin-bottom: em(148);
+
+  h4 {
+    color: $gColor3;
+    text-align: center;
+    margin-bottom: em(56);
+  }
+
+  @include tablet {
+    margin-bottom: em(74);
+  }
+}
+
 .list-sec {
   table {
     table-layout: fixed;
@@ -24,30 +39,9 @@
       color: $gColor1;
     }
   }
-  .btn-grp {
-    margin-top: -39px;
-    text-align: right;
-  }
-  @include  tablet {
-    .pagination {
-      text-align: left;
-    }
-  }
-  @include mobile {
-    .pagination {
-      text-align: center;
-    }
-    .btn-grp {
-      margin-top: em(24);
-      .btn {
-        display: block;
-        width: 100%;
-      }
-    }
-  }
 
   /* table */
-  .online-consult, .tb-qa, .tb-review {
+  .tb-qa, .tb-review {
     th, td {
       &:nth-of-type(1) {width: 7%;}
       &:nth-of-type(3) {width: 11%;}
@@ -63,7 +57,7 @@
       }
     }
   }
-  .notice, .tb-notice {
+  .tb-notice {
     th, td {
       &:nth-of-type(1) {width: 10%;}
       &:nth-of-type(3) {width: 14%;}
@@ -149,9 +143,7 @@
   margin: 0 auto;
   box-shadow: 0 0 4px 3px $oColor4;
   padding: em(72);
-  #{$input-arr1} {
-    width: 100%;
-  }
+  #{$input-arr1} {width: 100%;}
   .title {
     font-size: em(20);
   }
@@ -160,9 +152,11 @@
   }
 }
 .write-box {
-  margin-top: em(22);
-  border-top: 2px solid $gColor1;
-  border-bottom: 1px solid $gColor8;
+  ul {
+    margin: em(22) 0 em(30);
+    border-top: 2px solid $gColor1;
+    border-bottom: 1px solid $gColor8;
+  }
   li {
     display: table;
     width: 100%;
@@ -183,7 +177,6 @@
   }
 }
 .agree-terms {
-  margin-top: em(30);
   .scroll-box {
     color: $gColor7;
     font-size: em(14);

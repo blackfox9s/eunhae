@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="wrap" data-select-menu="about,m7">
     <!-- S :: header : include시 div 삭제 -->
     <div class="include" data-href="../include/header.html"></div>
     <!-- E :: header : include시 div 삭제 -->
@@ -35,7 +35,7 @@
       <!-- S :: visual-section -->
       <section class="visual-sec" style="background-image: url('../../asset/images/visual/about.jpg');">
         <div class="inner">
-          <div >
+          <div class="point2">
             <h2>경험의 차이가 실력의 차이</h2>
             <span>
               10년 이상 여성질환, 여성성형 진료경험과<br />
@@ -47,37 +47,7 @@
       <!-- E :: visual-section -->
 
       <!-- S :: path-section -->
-      <section class="path-sec">
-        <div class="inner">
-          <span class="home">
-            <a href="/"><i class="fas fa-home"></i> 홈</a>
-          </span>
-          <dl>
-            <dt><em></em> <i class="fas fa-chevron-down"></i></dt>
-            <dd>
-              <p class="act"><a href="#">이용안내</a></p>
-              <p><a href="#">임신·피임</a></p>
-              <p><a href="#">여성질환</a></p>
-              <p><a href="#">여성검진</a></p>
-              <p><a href="#">여성성형</a></p>
-            </dd>
-          </dl>
-          <dl>
-            <dt><em></em> <i class="fas fa-chevron-down"></i></dt>
-            <dd>
-              <p class=""><a href="#">원장인사말</a></p>
-              <p class=""><a href="#">의료진소개</a></p>
-              <p class=""><a href="#">시설안내</a></p>
-              <p class=""><a href="#">진료과목/시간</a></p>
-              <p class=""><a href="#">오시는길</a></p>
-              <p class=""><a href="#">공지사항</a></p>
-              <p class="act"><a href="#">간편예약</a></p>
-              <p class=""><a href="#">질문과 답변</a></p>
-              <p class=""><a href="#">이용후기</a></p>
-            </dd>
-          </dl>
-        </div>
-      </section>
+      <div class="include" data-href="../include/path.html"></div>
       <!-- E :: path-section -->
 
       <div id="contents" class="about">
@@ -90,13 +60,13 @@
           </p>
         </h3>
 
-        <div class="easy-booking">
+        <section class="board-area">
           <h4>
             간편 예약 응대 시간 : 평일 (08:00 ~ 17:00), 토요일 (08:00 ~ 13:00)<br />
             업무 시간 이후 접수된 경우, 다음날 오전에 순차적으로 전화 드린 후, 확정됩니다. (일요일, 공휴일 불가)<br />
             가능한 당일이 아닌 하루 전에 진료를 예약하길 권장합니다.
           </h4>
-          <section class="write-sec">
+          <div class="write-sec">
             <p class="title">상담자 정보(필수)</p>
             <article class="write-box">
               <ul>
@@ -144,8 +114,8 @@
             <article class="btn-grp">
               <a href="#" class="btn ty1"><span>간편예약하기</span></a>
             </article>
-          </section>
-        </div>
+          </div>
+        </section>
         <!-- E :: #contents -->
       </div>
     </div>

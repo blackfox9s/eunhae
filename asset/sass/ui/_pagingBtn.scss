@@ -4,27 +4,28 @@
   margin-top: em(30);
   text-align: center;
   line-height: 1;
-  span {
+  .paging-number,
+  .paging-btn {
     display: inline-block;
     vertical-align: top;
-  }
-  a, button {
-    display: inline-block;
-    font-size: em(14);
-    padding: em(9, 14) em(7, 14) em(8, 14);
-    color: $gColor1;
-    border: solid $oColor3;
-    border-width: 0 0 2px;
-    transition: border 0.3s;
-    margin: 0 3px;
-    cursor: pointer;
+    a, button {
+      display: inline-block;
+      font-size: em(14);
+      padding: em(9, 14) em(7, 14) em(8, 14);
+      color: $gColor1;
+      border: solid $oColor3;
+      border-width: 0 0 2px;
+      transition: border 0.3s;
+      margin: 0 3px;
+      cursor: pointer;
 
-    &:disabled {
-      opacity: 0.5;
-    }
-    &.act {
-      color: $color1;
-      border-color: $color1;
+      &:disabled {
+        opacity: 0.5;
+      }
+      &.act {
+        color: $color1;
+        border-color: $color1;
+      }
     }
   }
   .paging-number {
@@ -37,6 +38,23 @@
       min-width: em(32, 14);
       border-color: $gColor3;
       border-width: 1px;
+    }
+  }
+  .btn-grp {
+    margin-top: em(-42);
+    text-align: right;
+  }
+  @include tablet {
+    text-align: left;
+  }
+  @include mobile {
+    text-align: center;
+    .btn-grp {
+      margin-top: em(24);
+      .btn {
+        display: block;
+        width: 100%;
+      }
     }
   }
 }
@@ -55,6 +73,7 @@
   height: em(48);
   line-height: em(46);
   border: 1px solid $oColor3;
+  font-weight: 300;
   > span {
     font-size: em(16);
   }
@@ -66,5 +85,14 @@
     background: $gColor2;
     color: $gColor1;
     border-color: $gColor4;
+  }
+  &.ty3 {
+    background: $gColor2;
+    color: $color1;
+    border-color: $color1;
+    &:hover {
+      background: $color1;
+      color: $gColor2;
+    }
   }
 }

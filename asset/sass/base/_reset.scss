@@ -20,7 +20,7 @@ img {max-width: 100%;}
 #{$input-arr1} {
   height: em(50);
   line-height: em(50);
-  padding: 0 em(10);
+  padding: 0 em(16);
   border: 1px solid $gColor8;
   color: $gColor1;
   @include placeholder {
@@ -30,6 +30,17 @@ img {max-width: 100%;}
 #{$input-arr3} {
   width: em(25);
   height: em(25);
+}
+
+textarea {
+  height: auto;
+  padding: em(16);
+}
+
+select {
+  &:invalid {
+    color: $gColor3;
+  }
 }
 
 .cus-check {
@@ -60,3 +71,14 @@ img {max-width: 100%;}
 
 .point1 {color: $color1 !important;}
 .point2 {color: $gColor1 !important;}
+.point3 {color: $color5 !important;}
+.point4 {color: $gColor3 !important;}
+
+.only-pc {
+  @include desktop {display: block;}
+  @include tablet {display: none;}
+}
+.only-mo {
+  @include desktop {display: none;}
+  @include tablet {display: block;}
+}

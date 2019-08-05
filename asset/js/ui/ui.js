@@ -8,7 +8,6 @@ var ui = (function () {
 
   function init() {
     visualSlick();
-    pathList();
     photoSlick();
     tab();
     toggle();
@@ -24,28 +23,6 @@ var ui = (function () {
       $ele.find("#wrap").removeAttr("style");
       $(window).scrollTop(scrollPos);
     }
-  }
-
-  function pathList(){
-    var pathBox = $('.path-sec');
-    if(pathBox.length===0){return false;}
-    var flag = (pathBox.find('dd a').length===1);
-    pathBox.find('dt').on("click keypress", function(e){
-      var $thisParent = $(this).closest('dl');
-      if(e.type === 'keypress' && e.which !== 13 || flag) {return;}
-      if($thisParent.hasClass('is-open')){
-        $thisParent.removeClass('is-open');
-      }else{
-        $thisParent.addClass('is-open').siblings().removeClass('is-open');
-      }
-    });
-    pathBox.find('dl').each(function(){
-      var txt = $(this).find('.act a').text();
-      $(this).find('dt em').text(txt);
-      $(this).find('dd a').last().on('keydown', function(e){
-        if(e.which === 9){$(this).closest('dl').find('dt').focus(); return false;}
-      });
-    });
   }
 
   function visualSlick(){
@@ -122,7 +99,6 @@ var ui = (function () {
     var toggleAction = function(){
       var $selectObj;
       $selectObj = $obj.find('dl').eq(currentNum);
-      console.log($selectObj);
       $selectObj.toggleClass('active').siblings().removeClass('active');
       if($selectObj.hasClass('active')){
         $selectObj.find('dd').stop().slideDown(200);

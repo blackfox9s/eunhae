@@ -4,14 +4,23 @@
   border: solid $gColor5;
   border-width: 1px 0;
   @include clearfix;
-  dl, span {
-    float: left;
+
+  a, em {
+    font-size: em(15);
+  }
+
+  .boxes {
+    display: table;
+    max-width: 720px;
     border: solid $gColor5;
     border-width: 0 1px;
-    margin-left: -1px;
     white-space: nowrap;
+    .home, dl {
+      display: table-cell;
+    }
   }
   dl {
+    border-left: 1px solid $gColor5;
     width: em(190);
     position: relative;
     cursor: pointer;
@@ -22,11 +31,15 @@
   dt {
     padding: em(20) em(30) em(18) em(20);
     position: relative;
+    em {
+      display: block;
+      @include ellipsis;
+    }
     .fas {
       position: absolute;
       right: em(18);
       top: 50%;
-      margin-top: em(-8);
+      margin-top: em(-6);
     }
   }
   dd {
@@ -42,6 +55,9 @@
       display: block;
       padding: em(10) em(30) em(8) em(20);
     }
+    &.disabled {
+      display: none !important;
+    }
     .act {
       display: none;
     }
@@ -50,24 +66,18 @@
       margin-top: -1px;
     }
   }
-  span {
-    width: em(80);
-    min-width: 60px;
-    padding: em(20) 0 em(18);
+  .home {
+    width: em(60);
     text-align: center;
-    .fas {
-      position: relative;
-      top: em(1);
+    em {
+      margin-left: em(8);
     }
   }
-  a, em {
-    font-size: 15px;
-  }
+
   @include tablet-desktop {
     .inner {
       padding: 0;
-      display: table;
-      margin: 0 -1px 0 0;
+      margin: 0 -1px;
     }
     dl, span {
       float: none;
@@ -82,13 +92,34 @@
     }
   }
   @include tablet {
-    margin-right: -1px;
-    .inner {
+    .boxes {
       width: 100%;
       max-width: 520px;
+      table-layout: fixed;
     }
     dl {
       width: auto;
+    }
+    dt {
+      padding: em(14) em(24) em(11) em(10);
+      .fas {
+        right: em(10);
+      }
+    }
+    .home em {
+      display: none;
+    }
+  }
+  @include mobile {
+    .home {
+      width: em(40);
+    }
+    dd {
+      margin-top: -1px;
+      a {
+        padding-left: em(10);
+        padding-right: em(10);
+      }
     }
   }
 }

@@ -27,9 +27,9 @@
   }
   .col1 li {width: 100%;}
   .col2 li {width: 50%;}
-  .col3 li {width: 33.3%;}
-  .col4 li {width: 25%;}
-  .col5 li {width: 20%;}
+  .col3 li, .col6 li  {width: 33.3%;}
+  .col4 li, .col8 li {width: 25%;}
+  .col5 li, .col10 li  {width: 20%;}
   .col6 li {width: 16.6%;}
   @include tablet {
     margin-bottom: em(50);
@@ -42,7 +42,10 @@
   }
 }
 
+.intro-staff-tab {}
+
 .toggles {
+  background: $gColor10;
   dl {
     position: relative;
     & + dl {
@@ -53,6 +56,7 @@
     position: relative;
     border: 1px solid $gColor5;
     padding: em(26) em(90) em(26) em(28);
+    background: $gColor2;
     transition: all ease 0.3s;
     em {
       font-size: em(18);
@@ -73,7 +77,6 @@
   dd {
     display: none;
     padding: em(36) em(40);
-    background: $gColor10;
   }
   dl.active {
     z-index: 2;
@@ -89,6 +92,11 @@
       margin-top: 0;
     }
   }
+
+  article:nth-of-type(even) & {
+    background: $gColor2;
+  }
+
   @include tablet {
     dt {
       padding: em(13) em(45) em(13) em(14);

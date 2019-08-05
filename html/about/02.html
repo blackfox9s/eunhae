@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="wrap" data-select-menu="about,m2">
     <!-- S :: header : include시 div 삭제 -->
     <div class="include" data-href="../include/header.html"></div>
     <!-- E :: header : include시 div 삭제 -->
@@ -47,37 +47,7 @@
       <!-- E :: visual-section -->
 
       <!-- S :: path-section -->
-      <section class="path-sec">
-        <div class="inner">
-          <span class="home">
-            <a href="/"><i class="fas fa-home"></i> 홈</a>
-          </span>
-          <dl>
-            <dt><em></em> <i class="fas fa-chevron-down"></i></dt>
-            <dd>
-              <p class="act"><a href="#">이용안내</a></p>
-              <p><a href="#">임신·피임</a></p>
-              <p><a href="#">여성질환</a></p>
-              <p><a href="#">여성검진</a></p>
-              <p><a href="#">여성성형</a></p>
-            </dd>
-          </dl>
-          <dl>
-            <dt><em></em> <i class="fas fa-chevron-down"></i></dt>
-            <dd>
-              <p class=""><a href="#">원장인사말</a></p>
-              <p class="act"><a href="#">의료진소개</a></p>
-              <p class=""><a href="#">시설안내</a></p>
-              <p class=""><a href="#">진료과목/시간</a></p>
-              <p class=""><a href="#">오시는길</a></p>
-              <p class=""><a href="#">공지사항</a></p>
-              <p class=""><a href="#">간편예약</a></p>
-              <p class=""><a href="#">질문과 답변</a></p>
-              <p class=""><a href="#">이용후기</a></p>
-            </dd>
-          </dl>
-        </div>
-      </section>
+      <div class="include" data-href="../include/path.html"></div>
       <!-- E :: path-section -->
 
       <div id="contents" class="about">
@@ -90,18 +60,20 @@
           </p>
         </h3>
 
-        <div class="intro-staff">
-          <div class="tabs" data-action="tab" data-type="scroll">
-            <ul class="col6">
-              <li tabindex="1" data-tab-target="staff1"><span>장부용 원장</span></li>
-              <li tabindex="1" data-tab-target="staff2"><span>김향미 원장</span></li>
-              <li tabindex="1" data-tab-target="staff3"><span>임전주 원장</span></li>
-              <li tabindex="1" data-tab-target="staff4"><span>최경미 원장</span></li>
-              <li tabindex="1" data-tab-target="staff5"><span>주관영 원장</span></li>
-              <li tabindex="1" data-tab-target="staff6"><span>박행렬 원장</span></li>
-            </ul>
-          </div>
-          <div class="staff-detail">
+        <section class="about-area">
+          <article class="intro-staff-tab">
+            <div class="tabs" data-action="tab" data-type="scroll">
+              <ul class="col6">
+                <li tabindex="1" data-tab-target="staff1"><span>장부용 원장</span></li>
+                <li tabindex="1" data-tab-target="staff2"><span>김향미 원장</span></li>
+                <li tabindex="1" data-tab-target="staff3"><span>임전주 원장</span></li>
+                <li tabindex="1" data-tab-target="staff4"><span>최경미 원장</span></li>
+                <li tabindex="1" data-tab-target="staff5"><span>주관영 원장</span></li>
+                <li tabindex="1" data-tab-target="staff6"><span>박행렬 원장</span></li>
+              </ul>
+            </div>
+          </article>
+          <article class="staff-detail">
             <dl data-tab-seq="staff1">
               <dt><img src="../../asset/images/about/staff1.jpg" alt="" /></dt>
               <dd>
@@ -203,8 +175,8 @@
                 </ul>
               </dd>
             </dl>
-          </div>
-        </div>
+          </article>
+        </section>
         <!-- E :: #contents -->
       </div>
     </div>

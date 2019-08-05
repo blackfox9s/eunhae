@@ -3,6 +3,7 @@ $font1 : '돋음', 'Dotum';
 
 /* Size */
 $maxWidth: 1280px;
+$contentWidth: 1072px;
 $fontSize: 16px;
 
 /* 투명 색상 */
@@ -24,12 +25,17 @@ $gColor7: #999;
 $gColor8: #d5d5d5;
 $gColor9: #ccc;
 $gColor10: #f8f8f8;
+$gColor11: #fbfbfb;
+$gColor12: #eee;
 
 /* 기본 색상 */
 $color1: #ff327a;
 $color2: #fb76a2;
 $color3: #ffb6ce;
 $color4: #fbf7f9;
+$color5: #57292e;
+$color6: #b9a7a9;
+$color7: #fbe9ef;
 
 $input-arr-grp1: 'input[type="number"]', 'input[type="password"]', 'input[type="tel"]', 'input[type="email"]', 'input[type="text"], select, textarea';
 $input-arr-grp2: 'input[type="number"]', 'input[type="password"]', 'input[type="tel"]', 'input[type="email"]', 'input[type="text"]';

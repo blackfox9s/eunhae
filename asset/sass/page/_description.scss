@@ -1,34 +1,29 @@
 @charset "UTF-8";
 
 
-#contents.description {
-  margin-top: em(90);
-  margin-bottom: em(90);
-  @include tablet-desktop {
-    margin-bottom: 0;
-  }
-}
+#contents.description {}
 
 .description-tab {
-  @extend .inner;
-  max-width: 1072px;
+  @include inner;
   .tabs {
     margin-bottom: 0;
   }
 }
 
 .description-detail {
+  .inner {
+    max-width: $contentWidth;
+    padding-top: em(72);
+    padding-bottom: em(97);
+  }
   article:nth-of-type(even) {
     background: $gColor10;
   }
-  .inner {
-    max-width: 1072px;
-    padding-top: em(54);
-    padding-bottom: em(64);
+  h3 + & {
+    margin-top: em(-30);
   }
-
   h4 {
-    margin-bottom: em(40);
+    margin-bottom: em(32);
     strong {
       font-size: em(24);
       font-weight: 400;
@@ -39,7 +34,6 @@
   }
   @include tablet {
     h4 {
-      margin-bottom: em(25);
       strong {
         font-size: em(20);
       }
@@ -50,109 +44,172 @@
   }
 }
 
-.depict-grp {
-  li {
-    position: relative;
-    padding-left: em(42);
-    & + li {
-      margin-top: em(32);
-    }
-    &.top {
-      padding-left: 0;
-    }
-    &.catalog {
-      p {
-        position: relative;
-        padding-left: em(12);
-        &:before {
-          content: '-';
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-        & + p {
-          margin-top: 0;
-        }
-      }
-    }
-    em + p {
-      margin-top: em(11);
-    }
-    p {
-      color: $gColor3;
-      & + p {
-        margin-top: em(10);
-      }
-    }
-  }
-  em {
-    display: block;
+.depict-grp, .figure-round, .figure-square {
+  line-height: 1.6;
+  h5 {
     font-size: em(18);
+    margin-top: em(50,18);
+    &:first-child {
+      margin-top: 0;
+    }
   }
-  span {
-    position: absolute;
-    top: 0;
-    left: 0;
+  hr {border: none; margin: 0; height: em(22);}
+  .note {font-size: em(14); color: $gColor3;}
+  .remark,
+  .whence {margin-top: em(11);font-size: em(14); color: $gColor3;}
+  .whence {text-align: right;}
+
+  .mt10 {margin-top: em(10);}
+  .mt20 {margin-top: em(20);}
+  .mt30 {margin-top: em(30);}
+  .mb10 {margin-bottom: em(10);}
+  .mb20 {margin-bottom: em(20);}
+  .mb30 {margin-bottom: em(30);}
+}
+
+.depict-grp {
+  h5, dl, .rex-top {
+    & + ul {
+      border-top: 1px solid $gColor9;
+      padding-top: em(32);
+      margin-top: em(36);
+    }
+  }
+  h5.ty2 {
+    margin-top: em(24);
+    & + ul {
+      margin-top: em(15);
+    }
   }
 
-  .type1 {
+  > p {color: $gColor3;
+    & + p {margin-top: em(11);}
+  }
+  > dl {
+    dt {font-size: em(18); color: $gColor1;}
+    dd {
+      color: $gColor3; margin: em(11) 0;
+      strong {color: $gColor1;}
+      &:last-child {margin-bottom: 0;}
+      &.catalog.small {margin-top: em(32);}
+    }
+  }
+  > ul {
     li {
-      padding-bottom: em(32);
       border-bottom: 1px solid $gColor9;
+      padding-left: em(42);
+      position: relative;
+      padding-bottom: em(32);
+      margin-bottom: em(32);
+      color: $gColor3;
+      &:last-child {margin-bottom: 0 !important;}
+      em {display: block; font-size: em(18); color: $gColor1;
+        span {position: absolute; top: 0; left: 0;}
+      }
+      em + p {margin-top: em(11);}
+      p + p {margin-top: em(11);}
+    }
+  }
+  > ol {
+    li {
+      position: relative;
+      font-size: em(18);
+      padding-left: em(28);
+      & + li {
+        margin-top: em(8,18);
+      }
+    }
+    span {
+      position: absolute;
+      top: 0; left: 0;
     }
   }
 
-  .type2 {
-    margin-top: em(36);
-    padding-top: em(35);
-    border-top: 1px solid $gColor9;
-    p {
-      font-size: em(14);
+  .btn-grp {text-align: left;}
+  .rex-top {margin-bottom: em(11);}
+  .catalog {
+    color: $gColor3;
+    em {color: $gColor1;
+      & + div {margin: em(11) 0 em(20) !important;}
+      & + p {margin-top: em(11) !important;}
     }
+    p {
+      position: relative; padding-left: em(12); margin-top: 0 !important;
+      &:before { content: '-'; position: absolute; top: 0; left: 0;}
+    }
+    &.small {
+      > p, > span {font-size: em(14);}
+    }
+    &.num-type {
+      p {padding-left: em(20);}
+      p:before {display: none;}
+      p > span {position: absolute; top: 0; left: 0;}
+    }
+  }
+  .thum-list {margin: em(11) 0;}
+  .toggles & {
+    .rex-top {font-size: em(16);}
+    .rex-top + .catalog {margin-top: em(11);}
+    dl dt {font-size: em(16);}
+    ul {
+      li {
+        border-bottom-width: 0;
+        margin-bottom: 0;
+        padding-bottom: em(20);
+        &:last-child {padding-bottom: 0;}
+      }
+    }
+  }
+
+  & + .toggles {margin-top: em(36);}
+  & + .figure-round {margin-top: em(30);}
+  .figure-round + & {
+    border-top: 1px solid $gColor9;
+    padding-top: em(32);
+    margin-top: em(36);
   }
 
   @include tablet {
-    li {
-      padding-left: em(21);
-      & + li {
-        margin-top: em(16);
+    h5, dl, .rex-top {
+      & + ul {
+        padding-top: em(16);
+        margin-top: em(18);
       }
     }
-    em {
-      font-size: em(16);
-    }
-    .type1 {
+    ul {
       li {
+        padding-left: em(30);
         padding-bottom: em(16);
+        margin-bottom: em(16);
       }
-    }
-    .type2 {
-      margin-top: em(18);
-      padding-top: em(17);
     }
   }
 }
 
-.figure-grp {
-  margin-top: em(40);
-  text-align: center;
+.figure-round {
+  h4 + & {margin-top: em(-14);}
+  > p + ul {margin-top: 0;}
+  &:first-child ul {margin-top: em(-14);}
+
   ul {
-    margin: 0 em(-10);
+    margin: em(26) em(-10) 0;
+    text-align: left;
+    overflow: hidden;
   }
   li {
-    display: inline-block;
-    width: 19.5%;
-    max-width: em(204);
-    padding: 0 em(10);
+    float: left;
+    width: 20%;
+    max-width: 204px;
     vertical-align: top;
-    &:nth-of-type(odd) {
-      .box {border-color: $color1;}
-      .text:before {background: $color1;}
-    }
-    &:nth-of-type(even) {
-      .box {border-color: $color3;}
-      .text:before {background: $color3;}
-    }
+    margin-top: em(14);
+    padding: 0 em(10);
+    text-align: center;
+  }
+  .col6 li {
+    width: 16.6%;
+  }
+  .col3 li {
+    width: 33%;
   }
   .round {
     padding-top: 100%;
@@ -175,7 +232,6 @@
     span {
       display: table-cell;
       vertical-align: middle;
-      color: $color1;
       font-size: em(18);
     }
   }
@@ -190,23 +246,120 @@
       height: em(30);
     }
   }
-  @include tablet-desktop {
-    .text {
-      font-size: em(15);
+
+  &.ty1 {
+    .box {color: $color1;}
+    li:nth-of-type(odd) {
+      .box {border-color: $color1;}
+      .text:before {background: $color1;}
+    }
+    li:nth-of-type(even) {
+      .box {border-color: $color3;}
+      .text:before {background: $color3;}
     }
   }
-  @include tablet {
-    ul {
-      margin-left: em(-5);
-      margin-right: em(-5);
+  &.ty2 {
+    .box {color: $color5;}
+    li:nth-of-type(odd) {
+      .box {border-color: $color5;}
+      .text:before {background: $color5;}
     }
-    li {
-      width: 32%;
-      padding: 0 em(5);
+    li:nth-of-type(even) {
+      .box {border-color: $color6;}
+      .text:before {background: $color6;}
     }
+  }
+  & + .figure-round {
+    margin-top: em(40);
+  }
+
+  @include tablet-desktop {
+    .text {font-size: em(14);}
+    .box span {font-size: em(14);}
+    .col4 li {width: 25%;}
+  }
+  @media (max-width: 700px) {
+    .col5 li {width: 33%;}
+  }
+  @media (max-width: 620px) {
+    .col6 li {width: 33%;}
   }
   @include mobile {
-    margin-top: em(27);
-    .text {display: none;}
+    .col4 li {width: 50%;}
+  }
+}
+
+.figure-square {
+  color: $gColor3;
+  ol {
+    margin-top: em(13);
+    padding: 1px 0 0 1px;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+    text-align: center;
+    border: 1px solid $gColor8;
+    margin: -1px 0 0 -1px;
+    padding: em(16) em(5);
+    background: $gColor2;
+    @include ellipsis;
+  }
+  .col5 li {width: 20%;}
+  .col4 li {width: 25%;}
+  @include tablet {
+    .col5 li {width: 50%;}
+    .col4 li {width: 50%;}
+  }
+}
+
+.de-table {
+  margin-top: em(15);
+  overflow-y: auto;
+  table {
+    border-top: 2px solid $gColor1;
+    table-layout: fixed;
+    width: 100%;
+  }
+  thead {
+    th {border-bottom: 1px solid $gColor1;}
+  }
+  tbody {
+    th, td {font-size: em(14);}
+  }
+  td, th {
+    text-align: center;
+    vertical-align: middle;
+    border: solid $gColor8;
+    border-width: 0 0 1px 1px;
+    padding: em(7,14) em(10, 14) em(7,14);
+    &:first-child {border-left-width: 0;}
+    &.bg1 {background: $color1; color: $gColor2;}
+    &.bg2 {background: $color7; color: $color1;}
+    &.bg3 {background: $gColor12;}
+  }
+  td {color: $gColor3;}
+  .top {vertical-align: top;}
+
+  .care-tb1 {min-width: 540px;}
+  .care-tb2 {min-width: 640px;}
+
+  .pre-tb1 {min-width: 640px;}
+}
+
+/* 피부 */
+.dermatology-tb {
+  margin-top: em(11);
+  display: inline-block;
+  color: $gColor3;
+  p, i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  i {margin: 0 em(30);}
+  @include mobile {
+    display: block;
+    p, i {display: block;}
+    i {text-align: center;}
   }
 }

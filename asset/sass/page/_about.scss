@@ -1,30 +1,30 @@
 @charset "UTF-8";
 
 
-#contents.about {
-  @extend .inner;
-  margin: em(90) auto;
-  max-width: 1072px;
-}
-
-.easy-booking {
+#contents.about {}
+.about-area {
+  @include inner;
+  margin-bottom: em(100);
   h4 {
+    font-size: em(18);
     color: $gColor3;
     text-align: center;
-    margin-bottom: em(56);
+  }
+  @include tablet-desktop {
+    h4 {
+      font-size: em(16);
+      br {
+        display: none;
+      }
+    }
+  }
+  @include tablet {
+    margin-bottom: em(50);
   }
 }
 
-.txt-bar {
-  &:after {
-    content: '';
-    display: block;
-    width: 16px;
-    height: 2px;
-    background: $gColor1;
-  }
-}
 
+/* 원장 인사말 */
 .greetings {
   .text1 {
     margin: em(35) 0 em(25);
@@ -48,7 +48,9 @@
   }
 }
 
-.intro-staff {
+
+/* 의료진 소개 */
+.staff-detail {
   dl {
     overflow: hidden;
     &:nth-of-type(odd) {
@@ -128,21 +130,8 @@
   }
 }
 
-.facility {
-  h4 {
-    font-size: em(18);
-    color: $gColor3;
-    text-align: center;
-  }
 
-  @include tablet-desktop {
-    h4 {
-      br {
-        display: none;
-      }
-    }
-  }
-}
+/* 시설안내 */
 .facility-building {
   position: relative;
   overflow: hidden;
@@ -182,6 +171,17 @@
     }
     strong {
       font-size: em(22);
+    }
+  }
+
+  dl:nth-of-type(1) {
+    dt {
+      p {
+        color: $color1;
+        @include bar {
+          background: $color1;
+        }
+      }
     }
   }
 
@@ -339,6 +339,8 @@
   }
 }
 
+
+/* 오시는 길 */
 .location {
   .map {
     height: em(600);
@@ -384,6 +386,157 @@
     li {
       p {
         margin-top: em(6);
+      }
+    }
+  }
+}
+
+
+/* 진료과목 */
+.medical-subject {
+  .medical-thum {
+    margin-bottom: em(54);
+  }
+  h5 {
+    margin-bottom: em(30);
+    span {
+      font-size: em(24);
+    }
+    @include bar {
+      margin-top: em(18);
+    }
+  }
+  ul {
+    border-top: 1px solid $gColor1;
+  }
+  li {
+    position: relative;
+    margin-top: em(26);
+    padding-bottom: em(38);
+    border-bottom: 1px solid $gColor8;
+    @include clearfix;
+    strong {
+      display: block;
+      font-size: em(20);
+    }
+    p {
+      color: $gColor3;
+      font-size: em(14);
+      margin-top: em(4,14);
+    }
+    div {
+      padding-left: 124px;
+    }
+    .thum {
+      float: left;
+      margin: em(4) 0 0 30px;
+    }
+    .num {
+      font-size: em(12);
+    }
+  }
+  @include tablet {
+    li {
+      margin-top: em(20);
+      padding-bottom: em(24);
+      div {
+        padding-left: 84px;
+      }
+      .thum {
+        margin-left: 0;
+      }
+    }
+  }
+}
+.medical-subject-time {
+  background: $gColor11;
+  > div {
+    @include inner;
+    overflow: hidden;
+  }
+  h4 {
+    margin-bottom: 0;
+  }
+  .time-by-subject {
+    overflow: hidden;
+  }
+  .time {
+    margin: em(25) 0 em(15) em(-32);
+    overflow: hidden;
+    li {
+      float: left;
+      white-space: nowrap;
+      padding-right: em(75);
+      padding-left: em(32);
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        left: 0;
+        top: em(4);
+        bottom: em(12);
+        background: $gColor9;
+      }
+    }
+    p {
+      margin-bottom: em(9);
+    }
+    span {
+      margin-right: em(35);
+    }
+    em {
+      float: right;
+      padding-right: 3px;
+      letter-spacing: 0;
+    }
+  }
+  .note {
+    font-size: em(14);
+    color: $gColor3;
+    li {
+      padding-left: em(12);
+      position: relative;
+    }
+    li:before {
+      content: '-';
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  .btn + .btn {
+    margin-top: em(10);
+  }
+  @include tablet-better {
+    > div {
+      padding-top: em(73);
+      padding-bottom: em(106);
+    }
+    .time-by-subject {
+      float: left;
+    }
+    .btn-grp {
+      float: right;
+      width: 176px;
+    }
+    .btn {
+      display: block;
+    }
+  }
+  @include tablet {
+    > div {
+      padding-top: em(30);
+      padding-bottom: em(40);
+    }
+  }
+  @include mobile {
+    .btn {
+      display: block;
+    }
+    .time {
+      li {
+        padding-right: 0;
       }
     }
   }
