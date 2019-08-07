@@ -1,9 +1,11 @@
 var ui = (function () {
-  var $ele = $("html, body"), scrollPos = 0;
+  var $ele = $("html, body"), scrollPos = 0, popupCount=0, popLinks=[];
 
   return {
     init: init,
-    scrollLock: scrollLock
+    scrollLock: scrollLock,
+    popOpen:layerPop,
+    popClose:layerPopClose
   };
 
   function init() {
@@ -112,5 +114,39 @@ var ui = (function () {
       currentNum = $(this).parent().index();
       toggleAction();
     });
+  }
+
+  function layerPop(link){
+    var popupName = link.attr('data-popup');
+    var $popObj=$('[data-popup-name="'+ popupName +'"]'), linkHref = link;
+    popLinks.push(link);
+    $popObj.show();
+    popupFocus($popObj);
+    $popObj.find('.close').off("click").on("click", function(){
+      layerPopClose(popupName); linkHref.focus(); return false;
+    });
+  }
+  function layerPopClose(popupName){
+    popupCount = popupCount-1;
+    popLinks[popupCount].focus();
+    popLinks.pop();
+    $('[data-popup-name="'+ popupName +'"]').hide();
+  }
+  function popupFocus(obj){
+    var popChild = obj.find('a, area, button, input, object, select, textarea');
+    popChild.first().focus();
+    popupCount = popupCount+1;
+    if(popChild.length === 1){
+      popChild.off("keydown").on("keydown", function(e){
+        if(e.keyCode === 9){popChild.first().focus(); return false;}
+      });
+    }else{
+      popChild.last().off("keydown").on("keydown", function(e){
+        if(e.keyCode === 9){if(!e.shiftKey) {popChild.first().focus(); return false;}}
+      });
+      popChild.first().off("keydown").on("keydown", function(e){
+        if(e.keyCode === 9){if(e.shiftKey) {popChild.last().focus(); return false;}}
+      });
+    }
   }
 })();

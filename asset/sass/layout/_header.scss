@@ -1,6 +1,13 @@
 @charset "UTF-8";
 
 header {
+  h1 {
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -14px;
+  }
   border-bottom: 1px solid $gColor5;
   section {
     position: relative;
@@ -23,6 +30,15 @@ header {
     }
   }
   @include tablet-desktop {
+    h1 {
+      position: static;
+      text-align: center;
+      padding: em(16) 0;
+      margin-top: 0;
+      img {
+        width: 123px;
+      }
+    }
     section {
       padding-left: 0;
     }
@@ -31,22 +47,7 @@ header {
     }
   }
 }
-h1 {
-  line-height: 1;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -14px;
-  @include tablet-desktop {
-    position: static;
-    text-align: center;
-    padding: em(16) 0;
-    margin-top: 0;
-    img {
-      width: 123px;
-    }
-  }
-}
+
 .gnb {
   .box {
     padding: em(36) 0 em(35);
