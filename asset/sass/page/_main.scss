@@ -264,6 +264,26 @@
         background-image: url('../../asset/images/main/tabs_icon_active.png');
       }
     }
+    &:nth-of-type(1) {
+      &:before {background-image: url('../../asset/images/main/tabs_icon1.png');}
+      &.active:before {background-image: url('../../asset/images/main/tabs_icon1_active.png');}
+    }
+    &:nth-of-type(2) {
+      &:before {background-image: url('../../asset/images/main/tabs_icon2.png');}
+      &.active:before {background-image: url('../../asset/images/main/tabs_icon2_active.png');}
+    }
+    &:nth-of-type(3) {
+      &:before {background-image: url('../../asset/images/main/tabs_icon3.png');}
+      &.active:before {background-image: url('../../asset/images/main/tabs_icon3_active.png');}
+    }
+    &:nth-of-type(4) {
+      &:before {background-image: url('../../asset/images/main/tabs_icon4.png');}
+      &.active:before {background-image: url('../../asset/images/main/tabs_icon4_active.png');}
+    }
+    &:nth-of-type(5) {
+      &:before {background-image: url('../../asset/images/main/tabs_icon5.png');}
+      &.active:before {background-image: url('../../asset/images/main/tabs_icon5_active.png');}
+    }
   }
   @include tablet-desktop {
     li {
