@@ -48,7 +48,7 @@ var ui = (function () {
     $count = $obj.find('.count');
     if($count.length > 0) {
       $count.each(function(i){
-        $(this).prepend('<em>'+ (i+1)+'<hr>'+ $count.length +'</em>');
+        $(this).prepend('<em>'+ numPad(i+1, 2)+'<hr>'+ $count.length +'</em>');
       });
     }
     $obj.slick({
@@ -150,3 +150,8 @@ var ui = (function () {
     }
   }
 })();
+
+function numPad(n, width) {
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+}
