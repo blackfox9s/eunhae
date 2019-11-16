@@ -13,8 +13,10 @@
 .description-detail {
   .inner {
     max-width: $contentWidth;
-    padding-top: em(72);
-    padding-bottom: em(97);
+    padding: em(72) em(16);
+    &.type1 {
+      padding-top: em(36);
+    }
   }
   article:nth-of-type(even) {
     background: $gColor10;

@@ -371,6 +371,10 @@
       color: $gColor3;
     }
   }
+  .root_daum_roughmap {
+    padding: 0;
+    height: 100%;
+  }
   @include tablet {
     .map {
       height: em(400);

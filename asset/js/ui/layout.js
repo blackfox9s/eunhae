@@ -80,7 +80,8 @@ var layout = (function () {
       if(!isDep3) {
         $dep3.remove();
       } else {
-        $dep3.find('dd').filter('[data-dep2!="'+ selectMenu[1] +'"]').addClass('disabled');
+        $dep3.find('dd').not('[data-dep1="'+ selectMenu[0] +'"][data-dep2="'+ selectMenu[1] +'"]').addClass('disabled');
+        // $dep3.find('dd').filter('[data-dep2!="'+ selectMenu[1] +'"]').addClass('disabled');
       }
     }
     if(selectMenu[2]){
