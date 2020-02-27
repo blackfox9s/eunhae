@@ -13,7 +13,7 @@
 .description-detail {
   .inner {
     max-width: $contentWidth;
-    padding: em(72) em(16);
+    padding: em(72) em(40);
     &.type1 {
       padding-top: em(36);
     }
@@ -35,6 +35,9 @@
     }
   }
   @include tablet {
+    .inner {
+      padding: em(36) em(20);
+    }
     h4 {
       strong {
         font-size: em(20);

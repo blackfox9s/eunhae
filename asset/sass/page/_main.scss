@@ -55,7 +55,6 @@
       cursor: pointer;
       color: $gColor2;
       vertical-align: middle;
-      &.icon1 {width: 34%;}
       &:not(.btn-pn) + li {
         border-left: 1px solid $oColor5;
       }

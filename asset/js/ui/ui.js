@@ -33,7 +33,7 @@ var ui = (function () {
     $obj.find('.slider').slick({
       dots: false,
       infinite: true,
-      autoplay: true,
+      autoplay: $obj.length > 1,
       autoplaySpeed: 2000,
       fade: true,
       cssEase: 'linear',

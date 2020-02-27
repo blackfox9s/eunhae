@@ -76,9 +76,9 @@ select {
 
 .only-pc {
   @include desktop {display: block;}
-  @include tablet {display: none;}
+  @include tablet-desktop {display: none;}
 }
 .only-mo {
   @include desktop {display: none;}
-  @include tablet {display: block;}
+  @include tablet-desktop {display: block;}
 }
