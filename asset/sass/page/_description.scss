@@ -319,10 +319,12 @@
 .de-table {
   margin-top: em(15);
   overflow-y: auto;
+  margin-right: -1px;
   table {
     border-top: 2px solid $gColor1;
     table-layout: fixed;
     width: 100%;
+    margin-left: -1px;
   }
   thead {
     th {border-bottom: 1px solid $gColor1;}
@@ -336,7 +338,6 @@
     border: solid $gColor8;
     border-width: 0 0 1px 1px;
     padding: em(7,14) em(10, 14) em(7,14);
-    &:first-child {border-left-width: 0;}
     &.bg1 {background: $color1; color: $gColor2;}
     &.bg2 {background: $color7; color: $color1;}
     &.bg3 {background: $gColor12;}
