@@ -6,120 +6,137 @@
   @include clearfix;
 
   a, em {
-    font-size: em(15);
+    font-size: rem(15);
+    @include ellipsis;
+  }
+
+  .inner {
+    margin: 0 auto;
   }
 
   .boxes {
-    display: table;
+    display: inline-flex;
     max-width: 720px;
     border: solid $gColor5;
     border-width: 0 1px;
     white-space: nowrap;
-    .home, dl {
-      display: table-cell;
+    align-items: center;
+  }
+
+  .home {
+    width: rem(60);
+    text-align: center;
+
+    em {
+      margin-left: rem(8);
     }
   }
+
   dl {
     border-left: 1px solid $gColor5;
-    width: em(190);
+    width: rem(190);
     position: relative;
     cursor: pointer;
-    &.is-open {
-      dd {display: block;}
+
+    &.is-open dd {
+      display: block;
     }
   }
+
+  dt, dd {
+    em, a {
+      padding-left: rem(20);
+      padding-right: rem(20);
+    }
+  }
+
   dt {
-    padding: em(20) em(30) em(18) em(20);
+    padding: rem(20) rem(20) rem(18) 0;
     position: relative;
+
     em {
       display: block;
-      @include ellipsis;
     }
+
     .fas {
       position: absolute;
-      right: em(18);
+      right: rem(18);
       top: 50%;
-      margin-top: em(-6);
+      margin-top: rem(-6);
     }
   }
+
   dd {
     display: none;
     position: absolute;
     top: 100%;
     left: -1px;
-    right: -1px;
+    min-width: calc(100% + 2px);
     border: 1px solid $gColor5;
     background: $gColor2;
     z-index: 10;
+
     a {
       display: block;
-      padding: em(10) em(30) em(8) em(20);
+      padding-top: rem(10);
+      padding-bottom: rem(10);
     }
+
     &.disabled {
       display: none !important;
     }
+
     .act {
       display: none;
     }
+
     p {
       border-top: 1px solid $gColor5;
       margin-top: -1px;
     }
   }
-  .home {
-    width: em(60);
-    text-align: center;
-    em {
-      margin-left: em(8);
-    }
-  }
 
-  @include tablet-desktop {
-    .inner {
-      padding: 0;
-      margin: 0 -1px;
-    }
-    dl, span {
-      float: none;
-      display: table-cell;
-      border-width: 0;
-    }
-    dl {
-      border-width: 0 0 0 1px;
-      &:last-child {
-        border-right-width: 1px;
-      }
-    }
-  }
   @include tablet {
+    .inner {
+      margin: 0 -1px;
+      padding: 0;
+    }
     .boxes {
       width: 100%;
       max-width: 520px;
-      table-layout: fixed;
     }
+
+    .home {
+      width: rem(50);
+      flex: 0 1 auto;
+
+      em {
+        display: none;
+      }
+    }
+
     dl {
       width: auto;
+      flex: 1 0 auto;
     }
+
+    dt, dd {
+      em, a {
+        padding-left: rem(12);
+        padding-right: rem(12);
+      }
+    }
+
     dt {
-      padding: em(14) em(24) em(11) em(10);
+      padding: rem(13) rem(20) rem(11) 0;
+
       .fas {
-        right: em(10);
+        right: rem(8);
       }
     }
-    .home em {
-      display: none;
-    }
-  }
-  @include mobile {
-    .home {
-      width: em(40);
-    }
+
     dd {
-      margin-top: -1px;
-      a {
-        padding-left: em(10);
-        padding-right: em(10);
-      }
+      max-width: 100%;
     }
   }
 }

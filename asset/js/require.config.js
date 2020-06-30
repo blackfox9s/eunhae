@@ -1,7 +1,7 @@
 "use strict";
 
 var bustDate = new Date();
-var bustTime = bustDate.getFullYear() + '' + (bustDate.getMonth() + 1) + bustDate.getDate() + '' + +bustDate.getHours() + '' + 20/*bustDate.getTime()*/;
+var bustTime = bustDate.getTime()
 
 var module = {
   waitSeconds: 0,

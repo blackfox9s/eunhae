@@ -6,7 +6,7 @@ header {
     position: absolute;
     top: 50%;
     left: 0;
-    margin-top: -14px;
+    margin-top: -12px;
   }
   border-bottom: 1px solid $gColor5;
   section {
@@ -24,8 +24,8 @@ header {
       font-size: 22px;
     }
     &.close {
-      right: em(10);
-      top: em(6);
+      right: rem(10);
+      top: rem(6);
       font-size: 26px;
     }
   }
@@ -33,7 +33,7 @@ header {
     h1 {
       position: static;
       text-align: center;
-      padding: em(16) 0;
+      padding: rem(16) 0;
       margin-top: 0;
       img {
         width: 123px;
@@ -49,14 +49,15 @@ header {
 }
 
 .gnb {
+  @include transition(all 0.2s ease-in-out);
   .box {
-    padding: em(36) 0 em(35);
     overflow: hidden;
   }
-  @include transition(all 0.2s ease-in-out);
-  @media (max-width: 1200px) {
+  @include desktop {
     .box {
-      padding-bottom: em(16);
+      display: flex;
+      justify-content: space-between;
+      padding: rem(38) 0 rem(31);
     }
   }
   @include tablet-desktop {
@@ -71,7 +72,7 @@ header {
       width: 88%;
       max-width: 240px;
       height: 100%;
-      padding: em(20);
+      padding: rem(20);
       overflow-y: auto;
       background: $gColor2;
       position: relative;
@@ -90,41 +91,37 @@ header {
     }
   }
 }
+
 .main-nav {
   overflow: hidden;
+
   a {
     display: block;
-    font-weight: 500;
+    font-weight: 400;
+    white-space: nowrap;
   }
+
   .dep1 {
-    font-size: em(18);
+    font-size: rem(17);
+
     &.act {
       color: $color1;
     }
   }
+
   .dep2 {
     display: none;
   }
+
   @include desktop {
-    float: left;
-    li {float: left;}
+    display: flex;
+    flex-wrap: nowrap;
+
     li + li {
-      margin-left: em(60);
+      margin-left: rem(32);
     }
-    .dep1 {
-      padding-bottom: em(6);
-      border: solid $oColor3;
-      border-width: 0 0 2px;
-    }
-    .dep1.act {
-      border-color: $color1;
-    }
-  }
-  @media (max-width: 1200px) {
-    float: right;
   }
   @include tablet-desktop {
-    float: none;
     > li {
       border-bottom: 1px solid $gColor6;
     }
@@ -135,7 +132,11 @@ header {
     .dep2 {
       display: block;
       padding: 0 10px 14px;
-      li + li {margin-top: 12px;}
+
+      li + li {
+        margin-top: 12px;
+      }
+
       a {
         font-size: 13px;
         color: $gColor3;
@@ -147,38 +148,42 @@ header {
   a {
     display: block;
     color: $color1;
-    &.act {
-      padding-bottom: 2px;
-      border-bottom: 2px solid $color1;
-    }
+  }
+  .fas {
+    display: none;
+    margin-left: 5px;
   }
   @include desktop {
-    float: right;
-    margin-top: 1px;
-    li {float: left;}
+    padding-top: rem(2);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: rem(15);
+    justify-content: flex-end;
     li + li {
-      margin-left: em(22);
+      margin-left: rem(18);
     }
-  }
-  @media (max-width: 1200px) {
-    position: absolute;
-    top: em(5);
-    right: 0;
     a {
-      font-size: em(14);
+      padding-bottom: 2px;
+      border-bottom: 2px solid $oColor3;
       &.act {
-        padding-bottom: 0;
+        border-bottom-color: $color1;
       }
     }
   }
+  @media (max-width: 1250px) {
+    position: absolute;
+    top: rem(5);
+    right: 0;
+    font-size: rem(14);
+  }
   @include tablet-desktop {
     position: static;
-    margin-top: 12px;
+    padding-top: 10px;
     a {
-      font-size: 13px;
-      padding: 10px;
-      &.act {
-        border-bottom-width: 0;
+      font-size: 14px;
+      padding: 5px 10px;
+      &.act .fas {
+        display: inline-block;
       }
     }
   }

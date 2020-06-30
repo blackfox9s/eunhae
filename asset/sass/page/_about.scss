@@ -2,306 +2,335 @@
 
 
 #contents.about {}
+
 .about-area {
   @include inner;
-  margin-bottom: em(100);
+  padding-bottom: rem(100);
+
   h4 {
-    font-size: em(18);
+    font-size: rem(18);
     color: $gColor3;
     text-align: center;
   }
-  @include tablet-desktop {
+
+  @include tablet {
+    padding-bottom: rem(60);
     h4 {
-      font-size: em(16);
+      font-size: rem(16);
+
       br {
         display: none;
       }
     }
-  }
-  @include tablet {
-    margin-bottom: em(50);
   }
 }
 
 
 /* 원장 인사말 */
 .greetings {
-  .text1 {
-    margin: em(35) 0 em(25);
-    strong {
-      font-size: em(24);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  &__thum {
+    margin-right: rem(60);
+  }
+  &__info {
+    .text1 {
+      margin: 0 0 rem(23, 24);
+      font-size: rem(24);
       font-weight: 400;
+      @include bar {
+        margin-top: rem(25, 24);
+      }
     }
-    @include bar {
-      margin-top: em(25);
-    }
-  }
-  .text2 {
-    max-width: 800px;
-    font-size: em(18);
-    color: $gColor3;
-  }
-  @include tablet-desktop {
     .text2 {
-      max-width: 750px;
+      word-break: keep-all;
+      line-height: 1.65;
+      font-size: rem(16);
+      color: $gColor3;
+      margin-bottom: rem(42, 16);
+      p + p {
+        margin-top: 14px;
+      }
+    }
+    .text3 {
+      color: $gColor1;
+      font-size: rem(16);
+    }
+  }
+  @include tablet {
+    display: block;
+    &__thum {
+      text-align: center;
+      margin: 0 0 rem(30);
     }
   }
 }
 
 
 /* 의료진 소개 */
-.staff-detail {
-  dl {
-    overflow: hidden;
-    &:nth-of-type(odd) {
-      dt {float: left;}
-      dd {float: right;}
+.staff {
+  &__wrap {
+    &:nth-of-type(2) {
+      background: $gColor11;
     }
-    &:nth-of-type(even) {
-      dt {float: right;}
-      dd {float: left;}
-    }
-    & + dl {
-      padding-top: em(100);
-      border-top: 1px solid $gColor9;
-      margin-top: em(90);
+    .tabs {
+      margin-bottom: rem(60);
     }
   }
-  dt, dd {
-    width: 50%;
+  &__inner {
+    @include inner;
   }
-  dt {
-    text-align: center;
-  }
-  dd {
-    padding: em(32) 0 0 4%;
+  &__info-name {
+    em {
+      color: $color1;
+      display: block;
+      font-size: rem(18);
+      margin-bottom: rem(5, 18);
+    }
     strong {
-      font-size: em(24);
+      font-size: rem(24);
       font-weight: 400;
     }
-    > p {
-      @include bar {
-        margin: em(20) 0 em(18);
-      }
+    @include bar {
+      margin: rem(20) 0 rem(25);
     }
-    > div {
-      padding: em(7) 0 em(16);
-      em {
-        display: block;
-        font-weight: 500;
-        margin-bottom: em(7);
-      }
-    }
+  }
+  &__info-history {
     li {
-      margin-top: em(7);
-      color: $gColor3;
-      padding-left: em(13);
+      margin-top: rem(7);
+      padding-left: rem(13);
       position: relative;
+      color: $gColor3;
+
       &:before {
         content: '';
         position: absolute;
         left: 0;
-        top: em(10);
-        width: em(4);
-        height: em(4);
+        top: rem(10);
+        width: rem(4);
+        height: rem(4);
         border-radius: 100%;
         background: $gColor3;
       }
     }
   }
-  img {
-    width: 75%;
-    max-width: 380px;
-  }
-  @include tablet {
-    dl {
-      & + dl {
-        margin-top: em(40);
-        padding-top: em(50);
-      }
+  &__info-etc {
+    margin-top: rem(22);
+    p {
+      color: $color1;
     }
-    dt, dd {
-      float: none !important;
+    ol {
+      margin-top: rem(11);
+    }
+    li {
+      font-size: rem(14);
+      line-height: 1.6;
+      color: $gColor3;
+    }
+  }
+  &__thum {
+    display: inline-block;
+    position: relative;
+    max-width: 75%;
+    margin-bottom: rem(33);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: rem(30);
+      left: rem(-30);
       width: 100%;
+      height: 100%;
+      background: $color8;
     }
     img {
-      max-width: 240px;
+      width: 100%;
+      max-width: 380px;
+      position: relative;
+      z-index: 2;
+    }
+  }
+  &__detail-title {
+    padding: rem(74) 0 rem(25);
+    margin-bottom: rem(80);
+    border-bottom: 1px solid $gColor13;
+    span {
+      font-size: rem(24);
+    }
+  }
+  &__detail {
+    dl {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: rem(97);
+
+      &:nth-of-type(even) {
+        flex-direction: row-reverse;
+        .staff__thum:before {
+          left: rem(30);
+        }
+      }
+
+      & + dl {
+        padding-top: rem(80);
+        border-top: 1px solid $gColor9;
+      }
+    }
+
+    &.reverse {
+      dl {
+        flex-direction: row-reverse;
+        .staff__thum:before {
+          left: rem(30);
+          background: $gColor13;
+        }
+        &:nth-of-type(even) {
+          flex-direction: row;
+          .staff__thum:before {
+            left: rem(-30);
+          }
+        }
+      }
+    }
+
+    dt, dd {width: 50%;}
+    dt {text-align: center;}
+    dd {padding: rem(12) 0 0 4%;}
+  }
+
+  @include tablet {
+    &__thum {
+      img {
+        max-width: 240px;
+      }
+      &:before {
+        display: none;
+      }
+    }
+    &__detail {
+      dl {
+        display: block;
+        & + dl {
+          margin-top: rem(40);
+          padding-top: rem(50);
+        }
+      }
+      dt, dd {
+        width: 100%;
+      }
     }
   }
 }
 
 
 /* 시설안내 */
-.facility-building {
+.facility {
   position: relative;
   overflow: hidden;
+
   .flex {
     display: flex;
     align-items: center;
-    padding: em(16) em(32) em(16) 0;
+    padding: rem(16) rem(32) rem(16) 0;
+
     strong {
       flex-shrink: 0;
       text-align: center;
-      width: em(80, 22);
-      font-size: em(22);
+      width: rem(80, 22);
+      font-size: rem(22);
     }
   }
-  &-title {
-    padding: em(14) em(30);
+
+  &__title {
+    padding: rem(14) 0 rem(30);
+
     p {
-      display: inline-block;
       @include bar {
-        margin: em(14) 0 0 em(2);
+        display: inline-block;
+        margin: rem(15) 0 0 rem(2);
       }
-    }
-    strong {
-      font-size: em(22);
-    }
-    &.point p {
-      color: $color1;
-      &:after {
-        background: $color1;
-      }
-    }
-  }
-  @include desktop {
-    margin-top: em(96);
-    &-title {
-      width: calc((100% - 656px) / 2);
-      position: absolute;
-      top: 0;
-      right: 0;
+
       &.point {
-        left: 0;
-        right: initial;
-        text-align: right;
+        color: $color1;
+
+        &:after {
+          background: $color1;
+        }
+      }
+    }
+
+    strong {
+      font-size: rem(22);
+      display: block;
+    }
+  }
+
+  &__table {
+    max-width: 920px;
+    margin: rem(42) auto 0;
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    td {
+      min-height: 64px;
+      border: 1px solid $gColor8;
+      position: relative;
+
+      .floor-line {
+        &:before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: 100%;
+          margin-left: -504px;
+          width: 1008px;
+          height: 1px;
+          background: $gColor1;
+        }
+      }
+
+      &.border-right-none {
+        border-right-width: 0;
+      }
+
+      &.border-bottom-none {
+        border-bottom-width: 0;
       }
     }
   }
-  @include tablet-desktop {
-    margin-top: em(48);
-    &-title {
-      padding: 0 em(10) em(14);
-    }
-  }
 
-  /* pc */
-  table {
-    table-layout: fixed;
-    width: 100%;
-    max-width: 656px;
-    margin: 0 auto;
-  }
-  tr {
-    position: relative;
-  }
-  td {
-    min-height: 64px;
-    border: 1px solid $gColor8;
-    position: relative;
-  }
-  .floor-line {
-    &:before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 50%;
-      margin-left: -328px;
-      width: 1010px;
-      height: 1px;
-      background: $gColor1;
-    }
-  }
-  .border-right-none {
-    border-right-width: 0;
-  }
-  .border-bottom-none {
-    border-bottom-width: 0;
-  }
+  &__list {
+    margin-top: rem(48);
 
-  /* mo */
-  dl {
-    position: relative;
-    & + dl {
-      margin-top: em(30);
+    dl + dl {
+      margin-top: rem(30);
     }
-  }
-  dt {
-    padding: 0 0 em(14);
-  }
-  dd {
-    border: 1px solid $gColor8;
-    & + dd {
+
+    dt {
+      padding: 0 0 rem(14);
+    }
+
+    dd {
+      border: 1px solid $gColor8;
+    }
+    dd + dd {
       margin-top: -1px;
     }
   }
-}
-.facility-slider {
-  margin-top: em(60);
-  position: relative;
-  .item {
-    position: relative;
-    p {
-      width: 22%;
-      min-width: 120px;
-      max-width: 220px;
-      color: $gColor2;
-      position: absolute;
-      background: $oColor6;
-      white-space: nowrap;
-    }
-    em {
-      display: block;
-      opacity: 0.6;
-    }
-    span {
-      font-weight: 300;
-    }
-  }
-  hr {
-    position: relative;
-    display: inline-block;
-    border: solid $gColor2;
-    border-width: 1px 0 0;
-    width: em(60);
-    top: em(-5);
-    margin: 0 em(10);
-  }
-  .btn-pn {
-    position: absolute;
-    bottom: em(10);
-    width: em(40);
-    padding: em(11) 0 em(9);
-    line-height: 1;
-    text-align: center;
-    border-radius: 100%;
-    background: $gColor2;
-    opacity: 0.8;
-    .fas {
-      font-size: em(20);
-      width: em(20, 20);
-      height: em(20, 20);
-      color: $gColor1;
-    }
-    &.prev {
-      left: em(10);
-      padding-right: em(2);
-    }
-    &.next {
-      right: em(10);
-      padding-left: em(2);
-    }
-  }
-  @include tablet-better {
-    .item {
-      p {padding: em(16);}
-      span {font-size: em(20);}
-    }
-  }
-  @include tablet {
-    .item {
-      p {padding: em(12);}
-      span {font-size: em(16);}
+
+  @include desktop {
+    &__title {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+
+      p:last-child {
+        text-align: right;
+      }
     }
   }
 }
@@ -309,51 +338,170 @@
 
 /* 오시는 길 */
 .location {
-  .map {
-    height: 332px;
-    background: $gColor8;
+  &__map {
+    border: 1px solid $gColor8;
   }
-  li, .address {
-    padding: em(25) em(30) em(23);
-  }
-  .address {
-    color: $gColor2;
+  &__info {
     background: $color1;
-    em {
-      display: block;
-      font-weight: 300;
-    }
-    strong {
-      font-size: em(22);
-      font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -1px;
+    * {
+      color: $gColor2;
     }
   }
-  li {
-    border-bottom: 1px solid $gColor9;
-    strong {
-      font-size: em(18);
+  &__info-address {
+    padding: 0 rem(24);
+    p {
+      font-size: rem(18);
+      font-weight: 200;
+    }
+  }
+  &__info-way-finding {
+    border-left: 1px solid $oColor7;
+    a {
+      display: block;
+      padding: rem(18) rem(39) rem(19);
+    }
+    span {
+      display: inline-block;
+      font-size: em(16);
+      font-weight: 200;
+      padding-right: rem(20);
+      background: url('../../../asset/images/icon/arrow-right1.png') 100% 54% no-repeat;
+      background-size: rem(9) rem(14);
+    }
+  }
+  &__transport {
+    dt {
+      font-size: rem(18);
+      margin: rem(46) 0 rem(10);
     }
     p {
-      margin-top: em(12);
+      position: relative;
+      font-size: rem(14);
+      padding-left: rem(9);
       color: $gColor3;
-    }
-  }
-  .root_daum_roughmap {
-    padding: 0;
-    height: 100%;
-  }
-  @include tablet {
-    li, .address {
-      padding: em(15) em(16) em(13);
-    }
-    .address {
-      strong {
-        font-size: em(18);
+      line-height: 1.75;
+      &:before {
+        content: '-';
+        position: absolute;
+        left: 0;
+        top: 0;
       }
     }
+  }
+
+  @include tablet {
+    &__info {
+      display: block;
+    }
+    &__info-address {
+      padding: rem(12) rem(16) rem(10);
+    }
+    &__info-way-finding {
+      text-align: right;
+      border-left: none;
+      border-top: 1px solid $oColor7;
+      a {
+        display: inline-block;
+        padding: rem(12) rem(16);
+      }
+    }
+  }
+}
+
+
+/* 주차 */
+.parking {
+  ul {
+    display: flex;
+    margin-bottom: rem(20);
+  }
+  li + li {
+    margin-left: rem(32);
+  }
+  dt {
+    font-size: rem(18);
+  }
+  dd {
+    margin-top: rem(11);
+    color: $gColor3;
+  }
+
+  @include mobile {
+    ul {
+      display: block;
+    }
+    li + li {
+      margin: rem(10) 0 0 0;
+    }
+  }
+}
+
+
+/* 매력 */
+.charm {
+  &__text {
+    text-align: center;
+    word-break: keep-all;
+    color: $gColor3;
+    line-height: 1.65;
+
+    p + p {
+      margin-top: rem(9);
+    }
+  }
+
+  &__thum {
+    margin-top: rem(55);
+  }
+
+  &__list {
+    margin-top: rem(60);
+
     li {
+      position: relative;
+      border: 1px solid $gColor8;
+      display: flex;
+      align-items: center;
+      padding: rem(15) rem(30) rem(17);
+
+      &:before {
+        content: '';
+        display: block;
+        width: rem(8);
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        background: $color1;
+      }
+
+      & + li {
+        margin-top: rem(10);
+      }
+
+      span {
+        color: $color1;
+        font-style: italic;
+        font-size: rem(18);
+        white-space: nowrap;
+
+        &:after {
+          content: '';
+          display: inline-block;
+          width: rem(15);
+          height: 1px;
+          background: $color1;
+          vertical-align: middle;
+          margin: 0 rem(20);
+        }
+      }
+
       p {
-        margin-top: em(6);
+        font-size: rem(18);
       }
     }
   }
