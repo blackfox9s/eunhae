@@ -1,39 +1,15 @@
 @charset "UTF-8";
 
-
-#contents.about {}
-
-.about-area {
-  @include inner;
-  padding-bottom: rem(100);
-
-  h4 {
-    font-size: rem(18);
-    color: $gColor3;
-    text-align: center;
-  }
-
-  @include tablet {
-    padding-bottom: rem(60);
-    h4 {
-      font-size: rem(16);
-
-      br {
-        display: none;
-      }
-    }
-  }
-}
-
-
 /* 원장 인사말 */
 .greetings {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   &__thum {
     margin-right: rem(60);
   }
+
   &__info {
     .text1 {
       margin: 0 0 rem(23, 24);
@@ -58,6 +34,7 @@
       font-size: rem(16);
     }
   }
+
   @include tablet {
     display: block;
     &__thum {

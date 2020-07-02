@@ -61,30 +61,34 @@ var layout = (function () {
   }
 
   function pathList(){
-    var $pathBox = $('.path-sec'), flag, $dep1, $dep2, $dep3, $dep3Target, isDep3;
+    var $pathBox = $('.path-sec'), flag, $dep1, $dep2, $dep3, $dep3Target, isDep3, $dep2Target;
     if($pathBox.length===0){return false;}
 
     flag = ($pathBox.find('dd a').length===1);
     $dep1 = $pathBox.find('dl').eq(0);
     $dep2 = $pathBox.find('dl').eq(1);
     $dep3 = $pathBox.find('dl').eq(2);
+    $dep2Target = $dep2.find('[data-dep1="'+ selectMenu[0] +'"]')
+    $dep3Target = $dep3.find('dd').filter('[data-dep1="'+ selectMenu[0] +'"][data-dep2="'+ selectMenu[1] +'"]');
+
+    if($dep2Target.length === 0) {
+      $dep2.remove();
+    } else {
+      $dep2.find('dd').not('[data-dep1="'+ selectMenu[0] +'"]').addClass('disabled');
+    }
+    if($dep3Target.length === 0) {
+      $dep3.remove();
+    } else {
+      $dep3.find('dd').not('[data-dep1="'+ selectMenu[0] +'"][data-dep2="'+ selectMenu[1] +'"]').addClass('disabled');
+    }
 
     if(selectMenu[0]){
       $dep1.find('[data-dep1="'+ selectMenu[0] +'"]').addClass('act');
-      $dep2.find('dd').filter('[data-dep1!="'+ selectMenu[0] +'"]').addClass('disabled');
     }
-    if(selectMenu[1]){
-      $dep2.find('dd:not(.disabled)').find('[data-dep2="'+ selectMenu[1] +'"]').addClass('act');
-      $dep3Target = $dep3.find('dd').filter('[data-dep1="'+ selectMenu[0] +'"][data-dep2="'+ selectMenu[1] +'"]');
-      isDep3 = $dep3Target.length !== 0;
-      if(!isDep3) {
-        $dep3.remove();
-      } else {
-        $dep3.find('dd').not('[data-dep1="'+ selectMenu[0] +'"][data-dep2="'+ selectMenu[1] +'"]').addClass('disabled');
-        // $dep3.find('dd').filter('[data-dep2!="'+ selectMenu[1] +'"]').addClass('disabled');
-      }
+    if (selectMenu[1]) {
+      $dep2Target.find('[data-dep2="'+ selectMenu[1] +'"]').addClass('act');
     }
-    if(selectMenu[2]){
+    if (selectMenu[2]) {
       $dep3Target.find('[data-dep3="'+ selectMenu[2] +'"]').addClass('act');
     }
 
