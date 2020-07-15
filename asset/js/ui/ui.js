@@ -48,8 +48,13 @@ var ui = (function () {
     $count = $obj.find('.count');
     if($count.length > 0) {
       $count.each(function(i){
-        $(this).prepend('<em>'+ numPad(i+1, 2)+'<hr>'+ $count.length +'</em>');
+        $(this).prepend('<em>'+ numPad(i+1, 2)+'<hr>'+ numPad($count.length, 2) +'</em>');
       });
+    }
+    if (parseInt($obj.attr('data-arrow')) === 1) {
+      var prev = '<div class="btn-pn prev"><i class="fas fa-chevron-left"></i></div>'
+      var next = '<div class="btn-pn next"><i class="fas fa-chevron-right"></i></div>'
+      $obj.parent().append(prev + next);
     }
     $obj.slick({
       dots: false,
@@ -100,17 +105,17 @@ var ui = (function () {
     var $obj = obj, currentNum = 0;
     var toggleAction = function(){
       var $selectObj;
-      $selectObj = $obj.find('dl').eq(currentNum);
+      $selectObj = $obj.find('> dl').eq(currentNum);
       $selectObj.toggleClass('active').siblings().removeClass('active');
       if($selectObj.hasClass('active')){
-        $selectObj.find('dd').stop().slideDown(200);
+        $selectObj.find('> dd').stop().slideDown(200);
       } else {
-        $selectObj.find('dd').stop().slideUp(200);
+        $selectObj.find('> dd').stop().slideUp(200);
       }
-      $selectObj.siblings().find('dd').stop().slideUp(200);
+      $selectObj.siblings().find('> dd').stop().slideUp(200);
     };
     if(type === 'active') {toggleAction();}
-    $obj.find('dt').off('click').on('click', function(){
+    $obj.find('> dl > dt').off('click').on('click', function(){
       currentNum = $(this).parent().index();
       toggleAction();
     });

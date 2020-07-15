@@ -1,12 +1,13 @@
 .tabs {
   @include clearfix;
-  margin-bottom: em(100);
   padding: 1px 1px 0 0;
+
   li {
     float: left;
     text-align: center;
     outline: none;
     cursor: pointer;
+
     span {
       margin: -1px -1px 0 0;
       height: em(58);
@@ -16,6 +17,7 @@
       position: relative;
       border: 1px solid $gColor8;
     }
+
     &:hover {
       span {
         color: $gColor2;
@@ -25,43 +27,79 @@
       }
     }
   }
-  .col1 li {width: 100%;}
-  .col2 li {width: 50%;}
-  .col3 li, .col6 li  {width: 33.3%;}
-  .col4 li, .col8 li {width: 25%;}
-  .col5 li, .col10 li  {width: 20%;}
-  .col6 li {width: 16.6%;}
+
+  .col1 li {
+    width: 100%;
+  }
+
+  .col2 li {
+    width: 50%;
+  }
+
+  .col3 li, .col6 li {
+    width: 33.3%;
+  }
+
+  .col4 li, .col8 li, .col7 li {
+    width: 25%;
+  }
+
+  .col5 li, .col10 li {
+    width: 20%;
+  }
+
+  .col6 li {
+    width: 16.6%;
+  }
   @include tablet {
-    margin-bottom: em(50);
-    .col6 li {width: 33.3%;}
-    .col4 li {width: 50%;}
-    .col5 li {width: 33.3%;}
+    .col4 li {
+      width: 50%;
+    }
+    .col5 li {
+      width: 33.3%;
+    }
+    .col6 li {
+      width: 33.3%;
+    }
+    .col7 li {
+      width: 50%;
+    }
   }
   @include mobile {
-    .col3 li {width: 100%;}
-    .col5 li {width: 100%;}
+    .col3 li {
+      width: 100%;
+    }
+    .col5 li {
+      width: 100%;
+    }
+    .col7 li {
+      width: 100%;
+    }
   }
 }
 
-.intro-staff-tab {}
-
 .toggles {
   background: $gColor10;
+
   dl {
     position: relative;
+
     & + dl {
       margin-top: -1px;
     }
   }
+
   dt {
     position: relative;
     border: 1px solid $gColor5;
     padding: em(26) em(90) em(26) em(28);
     background: $gColor2;
     transition: all ease 0.3s;
+
     em {
       font-size: em(18);
     }
+
     .fas {
       width: em(90);
       position: absolute;
@@ -70,25 +108,31 @@
       margin-top: em(-10);
       text-align: center;
       transition: all ease 0.3s;
+
       &::before {
         font-size: em(22);
       }
     }
   }
+
   dd {
     display: none;
     padding: em(36) em(40);
   }
+
   dl.active {
     z-index: 2;
+
     dt {
       color: $gColor2;
       background: $color1;
       border-color: $color1;
+
       .fas {
         @include transform(rotate(180deg));
       }
     }
+
     & + dl {
       margin-top: 0;
     }
@@ -101,13 +145,16 @@
   @include tablet {
     dt {
       padding: em(13) em(45) em(13) em(14);
+
       .fas {
         width: em(45);
         margin-top: em(-9);
+
         &::before {
           font-size: em(18);
         }
       }
+
       em {
         font-size: em(16);
         font-weight: 500;
@@ -121,12 +168,15 @@
 
 .photo-slider {
   position: relative;
+
   > img {
     max-width: $maxWidth;
     width: 100%;
   }
+
   .slick-list, .slick-track,
   .slick-slide,
   .slick-slide > div,
-  .slick-slide > div > div {}
+  .slick-slide > div > div {
+  }
 }

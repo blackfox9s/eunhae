@@ -19,16 +19,19 @@
         margin-top: rem(25, 24);
       }
     }
+
     .text2 {
       word-break: keep-all;
       line-height: 1.65;
       font-size: rem(16);
       color: $gColor3;
       margin-bottom: rem(42, 16);
+
       p + p {
         margin-top: 14px;
       }
     }
+
     .text3 {
       color: $gColor1;
       font-size: rem(16);
@@ -51,13 +54,16 @@
     &:nth-of-type(2) {
       background: $gColor11;
     }
+
     .tabs {
       margin-bottom: rem(60);
     }
   }
+
   &__inner {
     @include inner;
   }
+
   &__info-name {
     em {
       color: $color1;
@@ -65,14 +71,17 @@
       font-size: rem(18);
       margin-bottom: rem(5, 18);
     }
+
     strong {
       font-size: rem(24);
       font-weight: 400;
     }
+
     @include bar {
       margin: rem(20) 0 rem(25);
     }
   }
+
   &__info-history {
     li {
       margin-top: rem(7);
@@ -92,20 +101,25 @@
       }
     }
   }
+
   &__info-etc {
     margin-top: rem(22);
+
     p {
       color: $color1;
     }
+
     ol {
       margin-top: rem(11);
     }
+
     li {
       font-size: rem(14);
       line-height: 1.6;
       color: $gColor3;
     }
   }
+
   &__thum {
     display: inline-block;
     position: relative;
@@ -121,6 +135,7 @@
       height: 100%;
       background: $color8;
     }
+
     img {
       width: 100%;
       max-width: 380px;
@@ -128,14 +143,17 @@
       z-index: 2;
     }
   }
+
   &__detail-title {
     padding: rem(74) 0 rem(25);
     margin-bottom: rem(80);
     border-bottom: 1px solid $gColor13;
+
     span {
       font-size: rem(24);
     }
   }
+
   &__detail {
     dl {
       display: flex;
@@ -144,6 +162,7 @@
 
       &:nth-of-type(even) {
         flex-direction: row-reverse;
+
         .staff__thum:before {
           left: rem(30);
         }
@@ -158,12 +177,15 @@
     &.reverse {
       dl {
         flex-direction: row-reverse;
+
         .staff__thum:before {
           left: rem(30);
           background: $gColor13;
         }
+
         &:nth-of-type(even) {
           flex-direction: row;
+
           .staff__thum:before {
             left: rem(-30);
           }
@@ -171,9 +193,17 @@
       }
     }
 
-    dt, dd {width: 50%;}
-    dt {text-align: center;}
-    dd {padding: rem(12) 0 0 4%;}
+    dt, dd {
+      width: 50%;
+    }
+
+    dt {
+      text-align: center;
+    }
+
+    dd {
+      padding: rem(12) 0 0 4%;
+    }
   }
 
   @include tablet {
@@ -181,6 +211,7 @@
       img {
         max-width: 240px;
       }
+
       &:before {
         display: none;
       }
@@ -188,11 +219,13 @@
     &__detail {
       dl {
         display: block;
+
         & + dl {
           margin-top: rem(40);
           padding-top: rem(50);
         }
       }
+
       dt, dd {
         width: 100%;
       }
@@ -294,6 +327,7 @@
     dd {
       border: 1px solid $gColor8;
     }
+
     dd + dd {
       margin-top: -1px;
     }
@@ -318,49 +352,59 @@
   &__map {
     border: 1px solid $gColor8;
   }
+
   &__info {
     background: $color1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: -1px;
+
     * {
       color: $gColor2;
     }
   }
+
   &__info-address {
     padding: 0 rem(24);
+
     p {
       font-size: rem(18);
       font-weight: 200;
     }
   }
+
   &__info-way-finding {
     border-left: 1px solid $oColor7;
+
     a {
       display: block;
       padding: rem(18) rem(39) rem(19);
     }
+
     span {
       display: inline-block;
-      font-size: em(16);
+      font-size: rem(16);
       font-weight: 200;
       padding-right: rem(20);
-      background: url('../../../asset/images/icon/arrow-right1.png') 100% 54% no-repeat;
+      background: url('../../asset/images/icon/arrow-right1.png') 100% 54% no-repeat;
       background-size: rem(9) rem(14);
     }
   }
+
   &__transport {
     dt {
       font-size: rem(18);
       margin: rem(46) 0 rem(10);
     }
+
     p {
       position: relative;
       font-size: rem(14);
       padding-left: rem(9);
       color: $gColor3;
       line-height: 1.75;
+
       &:before {
         content: '-';
         position: absolute;
@@ -381,6 +425,7 @@
       text-align: right;
       border-left: none;
       border-top: 1px solid $oColor7;
+
       a {
         display: inline-block;
         padding: rem(12) rem(16);
@@ -396,12 +441,15 @@
     display: flex;
     margin-bottom: rem(20);
   }
+
   li + li {
     margin-left: rem(32);
   }
+
   dt {
     font-size: rem(18);
   }
+
   dd {
     margin-top: rem(11);
     color: $gColor3;
@@ -488,109 +536,135 @@
 /* 진료과목 */
 .medical-subject {
   .medical-thum {
-    margin-bottom: em(54);
+    margin-bottom: rem(54);
   }
+
   h5 {
-    margin-bottom: em(30);
+    margin-bottom: rem(30);
+
     span {
-      font-size: em(24);
+      font-size: rem(24);
     }
+
     @include bar {
-      margin-top: em(18);
+      margin-top: rem(18);
     }
   }
+
   ul {
     border-top: 1px solid $gColor1;
   }
+
   li {
     position: relative;
-    margin-top: em(26);
-    padding-bottom: em(38);
+    margin-top: rem(26);
+    padding-bottom: rem(38);
     border-bottom: 1px solid $gColor8;
     @include clearfix;
+
     strong {
       display: block;
-      font-size: em(20);
+      font-size: rem(20);
     }
+
     p {
       color: $gColor3;
-      font-size: em(14);
-      margin-top: em(4,14);
+      font-size: rem(14);
+      margin-top: rem(4, 14);
     }
+
     div {
       padding-left: 124px;
     }
+
     .thum {
       float: left;
-      margin: em(4) 0 0 30px;
+      margin: rem(4) 0 0 30px;
     }
+
     .num {
-      font-size: em(12);
+      font-size: rem(12);
     }
   }
+
   @include tablet {
     li {
-      margin-top: em(20);
-      padding-bottom: em(24);
+      margin-top: rem(20);
+      padding-bottom: rem(24);
+
       div {
         padding-left: 84px;
       }
+
       .thum {
         margin-left: 0;
       }
     }
   }
 }
+
 .medical-subject-time {
   background: $gColor11;
+
   > div {
     @include inner;
     overflow: hidden;
   }
+
   h4 {
     margin-bottom: 0;
   }
+
   .time-by-subject {
     overflow: hidden;
   }
+
   .time {
-    margin: em(25) 0 em(15) em(-32);
+    margin: rem(25) 0 rem(15) rem(-32);
     overflow: hidden;
+
     li {
       float: left;
       white-space: nowrap;
-      padding-right: em(75);
-      padding-left: em(32);
+      padding-right: rem(75);
+      padding-left: rem(32);
       position: relative;
+
       &:before {
         content: '';
         position: absolute;
         width: 1px;
         left: 0;
-        top: em(4);
-        bottom: em(12);
+        top: rem(4);
+        bottom: rem(12);
         background: $gColor9;
       }
     }
+
     p {
-      margin-bottom: em(9);
+      margin-bottom: rem(9);
     }
+
     span {
-      margin-right: em(35);
+      margin-right: rem(35);
     }
+
     em {
       float: right;
       padding-right: 3px;
       letter-spacing: 0;
     }
   }
+
   .note {
-    font-size: em(14);
+    font-size: rem(14);
     color: $gColor3;
+
     li {
-      padding-left: em(12);
+      padding-left: rem(12);
       position: relative;
     }
+
     li:before {
       content: '-';
       position: absolute;
@@ -598,13 +672,15 @@
       left: 0;
     }
   }
+
   .btn + .btn {
-    margin-top: em(10);
+    margin-top: rem(10);
   }
+
   @include tablet-better {
     > div {
-      padding-top: em(73);
-      padding-bottom: em(106);
+      padding-top: rem(73);
+      padding-bottom: rem(106);
     }
     .time-by-subject {
       float: left;
@@ -619,8 +695,8 @@
   }
   @include tablet {
     > div {
-      padding-top: em(30);
-      padding-bottom: em(40);
+      padding-top: rem(30);
+      padding-bottom: rem(40);
     }
   }
   @include mobile {
@@ -639,43 +715,297 @@
 /* 비급여 진료항목 */
 .unpaid-medical {
   &-area {
-    @include inner;
     overflow: hidden;
+    display: flex;
+    margin: 0 rem(-16);
   }
+
   &-col {
-    float: left;
-    width: 50%;
-    padding: 0 em(17) em(60);
+    flex: 1 0 auto;
+    padding: 0 rem(16) rem(60);
+
     dl {
-      margin-top: 40px;
-      line-height: 40px;
+      line-height: rem(40);
     }
+
+    dl + dl {
+      margin-top: rem(40);
+    }
+
     dt {
       border: solid $gColor1;
       border-width: 2px 0 1px;
       text-align: center;
       font-weight: 500;
     }
+
     dd {
-      font-size: em(14);
-      border-bottom: 1px solid $gColor8;
       display: flex;
-      padding: 0 em(16, 14);
+      font-size: rem(14);
+      border-bottom: 1px solid $gColor8;
+      padding: 0 rem(16, 14);
       justify-content: space-between;
       white-space: nowrap;
     }
+
     strong {
       width: 60%;
       border-right: 1px solid $gColor8;
     }
+
     span {
       color: $gColor3;
     }
   }
+
   @include tablet {
-    &-col {
-      float: none;
-      width: 100%;
+    &-area {
+      display: block;
     }
+    &-col {
+      padding: 0 rem(20);
+    }
+  }
+}
+
+/* 진료과목 */
+.subject-guide {
+  &__list {
+    margin-top: rem(50);
+    border-top: 1px solid $gColor1;
+
+    span {
+      display: block;
+      font-size: rem(14);
+    }
+
+    dl {
+      border-bottom: 1px solid $gColor8;
+      display: flex;
+      align-items: center;
+      padding: rem(24) 0 rem(23);
+    }
+
+    dt {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      padding-left: rem(36);
+
+      p {
+        margin-left: rem(36);
+      }
+
+      span {
+        color: $gColor3;
+      }
+    }
+
+    dd {
+      display: flex;
+      flex-wrap: wrap;
+      width: 60%;
+      color: $gColor3;
+    }
+
+    ul {
+      flex: 1 1 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: rem(15);
+      margin: rem(2) 0 rem(3);
+
+      span {
+        margin-top: rem(3);
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        width: rem(4);
+        height: rem(4);
+        background: $gColor7;
+        position: absolute;
+        left: 0;
+        top: rem(10);
+      }
+    }
+
+    @include tablet {
+      img {
+        max-width: rem(40);
+      }
+      dl {
+        display: block;
+        padding: rem(20);
+      }
+      dt {
+        padding-left: 0;
+        margin-bottom: rem(20);
+        width: 100%;
+
+        p {
+          margin-left: rem(20);
+        }
+      }
+      dd {
+        width: 100%;
+      }
+    }
+    @include mobile {
+      ul {
+        flex-basis: auto;
+      }
+    }
+  }
+}
+
+/* 원장님별 진료과목 */
+.direct-subject {
+  h4 {
+    font-size: rem(24);
+    margin: rem(42) 0 rem(30);
+    @include bar {
+      margin-top: rem(20);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 rem(-16);
+    align-content: start;
+  }
+
+  li {
+    flex: 1 0 auto;
+    width: 50%;
+    padding: 0 rem(16);
+    margin: 0 0 rem(32);
+  }
+
+  .box {
+    border: 1px solid $gColor8;
+    height: 100%;
+    padding: rem(35) rem(39) rem(41);
+    display: flex;
+  }
+
+  .thumb {
+    margin-right: rem(33);
+    padding-top: rem(4);
+    width: rem(160);
+  }
+
+  dt {
+    em {
+      display: block;
+      margin-top: 1px;
+      font-size: rem(20);
+    }
+  }
+
+  dd {
+    margin-top: rem(12);
+
+    em {
+      display: block;
+      margin-bottom: rem(6);
+    }
+
+    p {
+      color: $gColor3;
+      position: relative;
+      padding-left: rem(15);
+      margin: rem(2) 0 rem(3);
+
+      &:before {
+        content: '';
+        display: block;
+        width: rem(4);
+        height: rem(4);
+        background: $gColor7;
+        position: absolute;
+        left: 0;
+        top: rem(10);
+      }
+    }
+  }
+
+  @include tablet {
+    li {
+      width: 100%;
+      margin-bottom: rem(16);
+    }
+  }
+  @include mobile {
+    h4 {
+      margin: rem(24) 0 rem(16);
+      @include bar {
+        margin-top: rem(12);
+      }
+    }
+    .box {
+      padding: rem(18);
+    }
+    .thumb {
+      margin-right: rem(20);
+      padding-top: 0;
+    }
+  }
+}
+
+/* 진료시간 */
+.subject-time {
+  dl {
+    font-size: rem(18);
+    background: $color9;
+    border: 1px solid $color1;
+    text-align: center;
+    padding: rem(50) rem(20) rem(37);
+  }
+  dt {
+    color: $color1;
+    &:before {
+      content: '';
+      display: block;
+      margin: 0 auto rem(36);
+      width: rem(64);
+      height: rem(59);
+      background: url('../../asset/images/treatment/time.png') 50% 0 no-repeat;
+      background-size: contain;
+    }
+  }
+
+  dd {
+    color: $gColor3;
+  }
+
+  ul {
+    margin-top: rem(-8);
+  }
+
+  li {
+    white-space: nowrap;
+    line-height: 1.8;
+
+    &.column {
+      display: flex;
+      letter-spacing: -0.10em;
+
+      > div:first-child {
+        margin-right: rem(15);
+      }
+    }
+
+    &.point1 {
+      margin-top: rem(7);
+    }
+  }
+
+  .depict-table + & {
+    margin-top: rem(24);
   }
 }

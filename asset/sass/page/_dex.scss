@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+$gray: $gColor3;
+$line: $gColor8;
+
+.mt6 {margin-top: rem(6) !important;}
+.mt12 {margin-top: rem(12) !important;}
+.mt18 {margin-top: rem(18) !important;}
+.mt24 {margin-top: rem(24) !important;}
+.mt30 {margin-top: rem(30) !important;}
+.mt36 {margin-top: rem(36) !important;}
+.mt42 {margin-top: rem(42) !important;}
+.mt48 {margin-top: rem(48) !important;}
+.mt54 {margin-top: rem(54) !important;}
+
+.ds {
+  &-detail {
+    > article {
+      padding: rem(72) 0 rem(80);
+
+      &:nth-of-type(even) {
+        background: $gColor11;
+      }
+
+      &.space-change {
+        padding-top: rem(24);
+        &:first-child {
+          padding-top: 0;
+        }
+      }
+
+      &.depict-index {
+        padding-top: 0;
+      }
+    }
+  }
+  &-sec {}
+}
+
+.ds-detail {
+  word-break: keep-all;
+  > section {
+    padding: rem(72) 0 rem(80);
+    &:nth-of-type(even) {
+      background: $gColor11;
+    }
+    > article {
+      @include inner;
+    }
+  }
+
+  h4 {
+    margin-bottom: rem(25);
+    font-size: rem(24);
+    font-weight: 400;
+    @include bar {
+      margin-top: rem(20);
+    }
+  }
+
+  .guide-title {
+    border: 1px solid #222;
+    margin: rem(40) 0 rem(20);
+    padding: rem(7) rem(15);
+  }
+
+  .fs-small {
+    font-size: rem(14);
+  }
+}
+
+.ds-txt {
+  &__20 {
+    font-size: rem(20);
+  }
+  &__18 {
+    font-size: rem(18);
+  }
+  &__16 {
+    font-size: rem(16);
+    color: $gray;
+  }
+  &__14 {
+    font-size: rem(14);
+  }
+}
+
+.ds-list {
+  &__type1 {
+    > dt {
+      font-size: rem(18);
+    }
+    > dd {
+      color: $gray;
+      margin-top: rem(10);
+    }
+  }
+  &__type2 {
+    li {
+      position: relative;
+      padding-left: rem(12);
+      color: $gray;
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      & + li {
+        margin-top: rem(3);
+      }
+    }
+    &.mark1 li::before {content: '-';}
+    &.mark2 li::before {content: '*';}
+  }
+  &__type3 {
+    li {
+      padding-left: rem(20);
+      text-indent: rem(-20);
+      color: $gray;
+      & + li {
+        margin-top: rem(3);
+      }
+    }
+    &.fs-small {
+      li {
+        padding-left: rem(18);
+        text-indent: rem(-18);
+      }
+    }
+  }
+  &__type2 + &__type2 {
+    margin-top: rem(24);
+  }
+}
