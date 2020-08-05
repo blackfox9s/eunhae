@@ -809,7 +809,7 @@
     }
 
     ul {
-      flex: 1 1 0;
+      flex: 1 1 auto;
     }
 
     li {
@@ -888,7 +888,7 @@
 
   .box {
     border: 1px solid $gColor8;
-    height: 100%;
+    height: auto;
     padding: rem(35) rem(39) rem(41);
     display: flex;
   }
@@ -933,7 +933,12 @@
       }
     }
   }
-
+  @include tablet-better {
+    li:nth-of-type(1),
+    li:nth-of-type(2) {
+      .box {height: 360px;}
+    }
+  }
   @include tablet {
     li {
       width: 100%;

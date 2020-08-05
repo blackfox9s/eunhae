@@ -33,8 +33,8 @@ var ui = (function () {
     $obj.find('.slider').slick({
       dots: false,
       infinite: true,
-      autoplay: $obj.length > 1,
-      autoplaySpeed: 2000,
+      autoplay: $obj.find('.slider > div').length > 1,
+      autoplaySpeed: 4000,
       fade: true,
       cssEase: 'linear',
       prevArrow: $obj.find('.prev'),
