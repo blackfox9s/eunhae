@@ -147,3 +147,39 @@ h3 {
     }
   }
 }
+
+.main-popup {
+  position: fixed;
+  z-index: 200;
+  box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+  &__body-contents {
+    background: $gColor5;
+    img {
+      width: 100%;
+    }
+  }
+  &__body-buttons {
+    background: $gColor2;
+    ul {
+      display: flex;
+    }
+    li {
+      flex: 1 0 0;
+      & + li {
+        border-left: 1px solid $gColor5;
+      }
+    }
+    a {
+      display: block;
+      text-align: center;
+      color: $gColor3;
+      padding: rem(12) rem(10) rem(14);
+    }
+  }
+  @include tablet {
+    max-width: 90%;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+  }
+}

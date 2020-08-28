@@ -160,3 +160,25 @@ function numPad(n, width) {
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
 }
+
+function layerPopupOpen() {
+  $('.main-popup').each(function() {
+    var name = $(this).attr('data-name');
+    if ($.cookie(name) !== 'Y') {
+      $(this).show();
+    } else {
+      $(this).hide();
+    }
+  });
+}
+
+function layerPopupHide(target, state){
+  var $parent = target.closest('.main-popup')
+  $parent.hide();
+  var name = $parent.attr('data-name');
+  if(state === 1){
+    if($.cookie(name) == undefined){
+      $.cookie(name, 'Y', { expires: 1, path: '/' });
+    }
+  }
+}

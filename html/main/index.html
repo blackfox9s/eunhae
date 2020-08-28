@@ -26,6 +26,27 @@
 </head>
 
 <body>
+  <section class="main-popup" data-name="popup2" style="width: 384px; top: 20px; left: 30px;">
+    <div class="main-popup__body">
+      <article class="main-popup__body-contents">
+        컨텐츠 입력<br /><br /><br /><br /><br /><br /><br /><br />
+        컨텐츠 입력<br /><br /><br /><br /><br /><br /><br /><br />
+      </article>
+      <article class="main-popup__body-buttons">
+        <ul>
+          <li>
+            <a href="javascript:void(0);" onclick="layerPopupHide($(this), 1);">
+              오늘 하루 보지 않기
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" onclick="layerPopupHide($(this), 0);">닫기</a>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
   <div class="wrap">
     <!-- S :: header : include시 div 삭제 -->
     <div class="include" data-href="../include/header.html"></div>

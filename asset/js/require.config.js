@@ -18,6 +18,7 @@ var module = {
     'underscore': 'libs/underscore',
     'moment': 'libs/moment.min',
     'slick': 'libs/slick.min',
+    'cookie': 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min',
 
     /* ui */
     'layout': 'ui/layout',
@@ -28,7 +29,7 @@ var module = {
   shim: {
     underscore: {exports: '_'},
     layout: {deps: ['jquery', 'slick']},
-    ui: {deps: ['jquery']},
+    ui: {deps: ['jquery', 'cookie']},
     develop: {deps: ['jquery', 'underscore']},
   }
 };
