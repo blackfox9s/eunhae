@@ -984,6 +984,27 @@
       text-indent: rem(-10);
     }
 
+    &.step {
+      margin: 0 rem(-27);
+      .item {
+        margin: 0 rem(27);
+        position: relative;
+      }
+      .item + .item {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 100%;
+          display: block;
+          width: rem(54);
+          height: rem(150);
+          background: url('../../asset/images//icon/thum_arrow.gif') 50% 50% no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+
     @include mobile {
       display: block;
       .item + .item {
@@ -1020,6 +1041,26 @@
 
   &__type2 + .depict-txt1 {
     margin-top: rem(38);
+  }
+
+  &__type3 {
+  }
+
+  &__type4 {
+    p {color: $gColor2; padding: rem(8) 0 rem(7);}
+    ul {
+      display: flex;
+    }
+    li {
+      flex: 1 0 auto;
+      padding: 0;
+      text-align: center;
+      &::before {display: none;}
+      &.before div { background: #ecdcb5; }
+      &.after div { background: #f2e4c4; }
+      &.before p { background: $gColor7; }
+      &.after p { background: $color1; }
+    }
   }
 }
 
