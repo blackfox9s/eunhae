@@ -188,7 +188,14 @@
     border-width: 1px 0;
     border-top-color: $gColor7;
     padding: em(25);
-    color: $gColor3;
+    h3 {
+      text-align: left;
+      margin: 0;
+      padding: 0;
+      &::after {
+        display: none;
+      }
+    }
   }
 
   .answer-grp {
@@ -299,3 +306,59 @@
     color: $gColor3;
   }
 }
+
+
+.edit-grp {
+  h1, .h1 { font-weight: 500; font-size: 2.5rem; margin: 0; }
+  h2, .h2 { font-weight: 500; font-size: 2rem; margin: 0; }
+  h3, .h3 { font-weight: 500; font-size: 1.75rem; margin: 0; }
+  h4, .h4 { font-weight: 500; font-size: 1.5rem; margin: 0; }
+  h5, .h5 { font-weight: 500; font-size: 1.25rem; margin: 0; }
+  h6, .h6 { font-weight: 500; font-size: 1rem; margin: 0; }
+
+  code, kbd, pre, samp {
+    font-size: 1em;
+  }
+
+  code {
+    font-size: 87.5%;
+    color: $color1;
+    word-break: break-word;
+    a > & {
+      color: inherit;
+    }
+  }
+
+  q {
+    &::before, &::after {
+      content: '"';
+    }
+  }
+
+  big {
+    font-size: large;
+  }
+
+  s {
+    text-decoration: line-through;
+  }
+
+  var, cite, em {
+    font-style: italic;
+  }
+
+  kbd {
+    padding: .2rem .4rem;
+    font-size: 87.5%;
+    color: #fff;
+    background: #212529;
+    border-radius: .2rem;
+  }
+
+  pre {
+    display: block;
+    font-size: 87.5%;
+    color: #212529;
+  }
+}
+
